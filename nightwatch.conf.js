@@ -8,7 +8,7 @@ module.exports = {
   src_folders: ["./test"],
 
   // See https://nightwatchjs.org/guide/working-with-page-objects/
-  page_objects_path: '',
+  page_objects_path: ["./page_object"],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-commands
   custom_commands_path:  '',
@@ -38,6 +38,7 @@ module.exports = {
 
       webdriver: {
         start_process: true,
+       // server_path: {}
         server_path: (Services.geckodriver ? Services.geckodriver.path : '')
       }
     },
