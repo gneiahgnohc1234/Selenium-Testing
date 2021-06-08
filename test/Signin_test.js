@@ -1,4 +1,5 @@
 var password_1 = "abcd1234";
+
 module.exports = {
     "Sign In": function (browser) {
         var home = browser.page.Home();
@@ -6,10 +7,14 @@ module.exports = {
         home
             .navigate()
             .pause(1000)
+            .assert.visible('@create_a')
             .click("@create_a")
             .pause(1000)
+            .assert.visible('@create_a')
             .click("@create_a")
             .pause(1000)
+            .assert.visible('@clear_button')
+            .assert.visible('@create_button')
             .setValue("@create_wallet_input", "Wallet Test")
             .setValue("@enter_password_input", password_1)
             .setValue("@confirm_password_input", password_1)
