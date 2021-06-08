@@ -7,11 +7,11 @@ module.exports = {
         home
             .navigate()
             .pause(1000)
-            .assert.visible('@create_a')
-            .click("@create_a")
+            .assert.visible('@create')
+            .click("@create")
             .pause(1000)
-            .assert.visible('@create_a')
-            .click("@create_a")
+            .assert.visible('@create')
+            .click("@create")
             .pause(1000)
             .assert.visible('@clear_button')
             .assert.visible('@create_button')
@@ -40,6 +40,9 @@ module.exports = {
             .pause(1000)
             .click('@signin_button2')
             .pause(1000)
-            .end()
+    },
+    "Accounts": function (browser){
+
     }
+    
 }

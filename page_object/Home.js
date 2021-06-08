@@ -2,38 +2,58 @@
 module.exports = {
   url : 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
   elements:{
-    create_button:{
+    logo:{
       locateStrategy: 'xpath',
-      selector: '//button[text()="Create"]'
+      selector: '/html/body/div[1]/div/header/div[1]/a/img'
     },
-    create_a:  {
+    network_dropdown:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[1]/div/header/div[3]/div[2]/div/div[2]/span'
+    },
+    mainnet:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[6]/div/ul/li[2]'
+    },
+    testnet:{
+        locateStrategy: 'xpath',
+        selector: '/html/body/div[6]/div/ul/li[3]'
+    },
+    home:{
+      locateStrategy: 'xpath',
+      selector:'//a[contains(text(),"Home")]'
+    },
+    signin_button:{
+      locateStrategy: 'xpath',
+      selector: '//a[contains(text(),"Sign In")]'
+    },
+    signin_title:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/h1'
+    },
+    signin_close:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[2]'
+    },
+    siriusid:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/div/a'
+    },
+    siriusid_title:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/div/div[1]/div/h1'
+    },
+    siriusid_close:{
+      locateStrategy: 'xpath',
+      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/div/div[1]/div/div[1]/svg'
+    },
+    wallet:{
+      locateStrategy: 'xpath',
+      selector: '//a[contains(text(),"Wallets")]'
+    },
+    create:  {
       locateStrategy: 'xpath',
       selector: '//a[contains(text(),"Create")]',
-    },
-    clear_button:  {
-      locateStrategy: 'xpath',
-      selector: '//button[contains(text(),"Clear")]'
-    },
-    create_wallet_input:  {
-      locateStrategy: 'xpath',
-      selector: '//input[contains(@placeholder,"Wallet Name")]'
-    },
-    enter_password_input:  {
-      locateStrategy: 'xpath',
-      selector: '//input[contains(@placeholder,"Enter a New Password")]'
-    },
-    confirm_password_input:  {
-      locateStrategy: 'xpath',
-      selector: '//input[contains(@placeholder,"Confirm New Password")]'
-    },
-    Show_Private_Key_a:  {
-      locateStrategy: 'xpath',
-      selector: '//a[contains(text(),"Show Private Key")]',
-    },
-    Continue_a:  {
-      locateStrategy: 'xpath',
-      selector: '//a[contains(text(),"Continue")]',
-    },
+    }
   }
 
 }
