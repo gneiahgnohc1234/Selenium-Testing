@@ -17,7 +17,7 @@ module.exports = {
             locateStrategy: 'xpath',
             selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[3]/div[2]/div[2]/div'
         },
-        create_button: {
+        create2: {
             locateStrategy: 'xpath',
             selector: '//button[text()="Create"]'
         },
@@ -37,13 +37,57 @@ module.exports = {
             locateStrategy: 'xpath',
             selector: '//input[contains(@placeholder,"Confirm New Password")]'
         },
-        Show_Private_Key_a: {
+        createsuccessful_title:{
+            locateStrategy: 'xpath',
+            selector: '/html/body/div[1]/div/div/div/div/div/div/h1'
+        },
+        show_privatekey: {
             locateStrategy: 'xpath',
             selector: '//a[contains(text(),"Show Private Key")]',
         },
-        Continue_a: {
+        privatekey:{
+            locateStrategy:'xpath',
+            selector:'/html/body/div[1]/div/div/div/div/div/div/div/div[4]/div/div[1]',
+        },
+        continue: {
             locateStrategy: 'xpath',
             selector: '//a[contains(text(),"Continue")]',
+        },
+        duplicatename_validation:{
+            locateStrategy:'xpath',
+            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[1]'
+        },
+        createfromprivatekey:{
+            locateStrategy:'xpath',
+            selector:'/html/body/div[1]/div/div/div/div/div/div/div[2]/a'
+        },
+        input_privatekey:{
+            locateStrategy: 'xpath',
+            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[2]/div[1]/input'
+        },
+        checkbox:{
+            locateStrategy: 'xpath',
+            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/label/input'
+        },
+        emptypk_validation:{
+            locateStrategy: 'xpath',
+            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[2]/div[2]/div'
+        },
+        emptyname_validation2:{
+            locateStrategy: 'xpath',
+            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[3]/div[2]/div'
+        },
+        emptypassword_validation2:{
+            locateStrategy: 'xpath',
+            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[4]/div[1]/div[2]/div'
+        },
+        emptyconfirmpassword_validation2:{
+            locateStrategy: 'xpath',
+            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[4]/div[2]/div[2]/div'
+        },
+        createpk_title:{
+            locateStrategy: 'xpath',
+            selector: '/html/body/div[1]/div/div/div/div/div/form/h1'
         }
     }
 }

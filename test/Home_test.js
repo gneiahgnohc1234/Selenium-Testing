@@ -27,7 +27,5 @@ module.exports = {
       .click('@siriusid')
       .assert.visible('@siriusid_title', 'When Sign In With Sirius ID button is clicked, the Sirius ID pop-up appeared')
       .end()
-      
     },
-  
 };

@@ -1,48 +1,53 @@
 var password_1 = "abcd1234";
-
+var password_2 = 'abcd12345'
 module.exports = {
     "Sign In": function (browser) {
-        var home = browser.page.Home();
+        var create = browser.page.Createwallet();
         var signin = browser.page.Signin();
-        home
+        //create an account
+        create
             .navigate()
-            .pause(1000)
-            .assert.visible('@create')
             .click("@create")
-            .pause(1000)
-            .assert.visible('@create')
+            .pause(500)
             .click("@create")
-            .pause(1000)
-            .assert.visible('@clear_button')
-            .assert.visible('@create_button')
-            .setValue("@create_wallet_input", "Wallet Test")
-            .setValue("@enter_password_input", password_1)
-            .setValue("@confirm_password_input", password_1)
-            .pause(1000)
-            .click("@clear_button")
-            .pause(1000)
-            .setValue("@create_wallet_input", "Wallet Test")
-            .setValue("@enter_password_input", password_1)
-            .setValue("@confirm_password_input", password_1)
-            .pause(1000)
-            .click("@create_button")
-            .pause(1000)
-            .click('@Continue_a')
+            .setValue("@input_walletname", "Wallet Test")
+            .setValue("@input_password", password_1)
+            .setValue("@input_confirmpassword", password_1)
+            .click("@create2")
+            .click('@continue')
+        //signin test
         signin
-            .pause(2000)
+           
             .click('@signin_button')
-            .pause(1000)
+            
             .click('@wallet_dropdown')
-            .pause(1000)
+            
             .click('@select_wallet')
-            .pause(1000)
-            .setValue("@inputpassword", password_1)
-            .pause(1000)
+            .click('@remove_wallet')
+            .pause(500)
+            .click('@signin_title')
+            .isVisible('@emptywallet_validation', function callback(result){
+                result? browser.assert.ok("If wallet field is empty, error is shown"): ''
+            })
+            .setValue("@inputpassword", '\ue004')
+            .pause(500)
+            .isVisible('@emptypassword_validation', function callback(result){
+                result? browser.assert.ok("If password field is empty, error is shown"): ''
+            })
+            .click('@wallet_dropdown')
+            .click('@select_wallet')
+            .setValue("@inputpassword", password_2)
             .click('@signin_button2')
+            .isVisible('@invalid_password', function callback(result){
+                result? browser.assert.ok("If password is incorrect, error is shown"): ''
+            })
+            //clear function is not functioning
+            .clearValue("@inputpassword")
+            .setValue("@inputpassword", password_1)
+            .click('@signin_button2')
+            browser.assert.urlEquals('https://proximax-foundry.github.io/web-wallet-vuejs/#/dashboard', 'User is successfully signed in with valid wallet name and password')
             .pause(1000)
+            .end()
     },
-    "Accounts": function (browser){
-
-    }
     
 }
