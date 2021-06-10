@@ -17,29 +17,26 @@ module.exports = {
             .click('@continue')
         //signin test
         signin
-           
             .click('@signin_button')
-            
             .click('@wallet_dropdown')
-            
             .click('@select_wallet')
             .click('@remove_wallet')
             .pause(500)
             .click('@signin_title')
             .isVisible('@emptywallet_validation', function callback(result){
-                result? browser.assert.ok("If wallet field is empty, error is shown"): ''
+                result.value === true? browser.assert.ok("If wallet field is empty, error is shown"): ''
             })
             .setValue("@inputpassword", '\ue004')
             .pause(500)
             .isVisible('@emptypassword_validation', function callback(result){
-                result? browser.assert.ok("If password field is empty, error is shown"): ''
+                result.value ===true? browser.assert.ok("If password field is empty, error is shown"): ''
             })
             .click('@wallet_dropdown')
             .click('@select_wallet')
             .setValue("@inputpassword", password_2)
             .click('@signin_button2')
             .isVisible('@invalid_password', function callback(result){
-                result? browser.assert.ok("If password is incorrect, error is shown"): ''
+                result.value === true? browser.assert.ok("If password is incorrect, error is shown"): ''
             })
             //clear function is not functioning
             .clearValue("@inputpassword")

@@ -14,16 +14,16 @@ module.exports = {
         create
             .setValue("@input_walletname", "\ue004") //clicks tab,  more info: https://www.selenium.dev/selenium/docs/api/py/webdriver/selenium.webdriver.common.keys.html
             .isVisible('@emptyname_validation', function callback(result){
-                result?browser.assert.ok("If wallet name is empty, error is shown"): ''
+                result.value === true?browser.assert.ok("If wallet name is empty, error is shown"): ''
             })
             .setValue('@input_password', "\ue004")
             .isVisible('@emptypassword_validation', function callback(result){
-                result?browser.assert.ok("If password is empty, error is shown"): ''   
+                result.value === true?browser.assert.ok("If password is empty, error is shown"): ''   
             })
             .setValue('@input_confirmpassword', "\ue004")
             .pause(500)
             .isVisible('@emptyconfirmpasword_validation', function callback(result){
-                result? browser.assert.ok("If confirm password is empty, error is shown"): ''
+                result.value ===true? browser.assert.ok("If confirm password is empty, error is shown"): ''
             })
             .setValue('@input_walletname',"Wallet Test")
             .setValue("@input_password", password1)
@@ -42,7 +42,7 @@ module.exports = {
             .setValue("@input_password", password1)
             .setValue("@input_confirmpassword", password2)
             .isVisible('@emptyconfirmpasword_validation', function callback(result){
-                result? browser.assert.ok("If confirm password is different from password, error is shown"): ''
+                result.value === true? browser.assert.ok("If confirm password is different from password, error is shown"): ''
             })
             //cant validate eyeicon
             .click("@clear_button")
@@ -65,7 +65,7 @@ module.exports = {
             .setValue("@input_confirmpassword", password1)
             .click("@create2")
             .isVisible('@duplicatename_validation', function callback(result){
-                result? browser.assert.ok("If wallet name is already taken, error is shown"): ''
+                result.value === true? browser.assert.ok("If wallet name is already taken, error is shown"): ''
             })
             .end();  
     }
