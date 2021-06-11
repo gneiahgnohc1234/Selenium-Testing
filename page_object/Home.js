@@ -3,56 +3,52 @@ module.exports = {
   url : 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
   elements:{
     logo:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/header/div[1]/a/img'
+      locateStrategy: 'css selector',
+      selector: '.w-32'
     },
     network_dropdown:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/header/div[3]/div[2]/div/div[2]/span'
+      locateStrategy: 'css selector',
+      selector: '.p-dropdown-trigger-icon'
     },
     mainnet:{
       locateStrategy: 'xpath',
       selector: '/html/body/div[6]/div/ul/li[2]'
     },
     testnet:{
-        locateStrategy: 'xpath',
-        selector: '/html/body/div[6]/div/ul/li[3]'
+        locateStrategy: 'css selector',
+        selector: 'li.p-dropdown-item:nth-child(3)'
     },
     home:{
-      locateStrategy: 'xpath',
-      selector:'//a[contains(text(),"Home")]'
+      locateStrategy: 'css selector',
+      selector:'.font-normal'
     },
     signin_button:{
-      locateStrategy: 'xpath',
-      selector: '//a[contains(text(),"Sign In")]'
+      locateStrategy: 'css selector',
+      selector: '.w-full'
     },
     signin_title:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/h1'
+      locateStrategy: 'css selector',
+      selector: '.default-title'
     },
     signin_close:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[2]'
+      locateStrategy: 'css selector',
+      selector: '.fixed'
     },
     siriusid:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/div/a'
+      locateStrategy: 'css selector',
+      selector: 'div.px-5:nth-child(2) > div:nth-child(1) > a:nth-child(1)'
     },
     siriusid_title:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/div/div[1]/div/h1'
-    },
-    siriusid_close:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/div/div[1]/div/div[1]/svg'
+      locateStrategy: 'css selector',
+      selector: '.default-title'
     },
     wallet:{
-      locateStrategy: 'xpath',
-      selector: '//a[contains(text(),"Wallets")]'
+      locateStrategy: 'css selector',
+      selector: 'div.w-16:nth-child(4) > a:nth-child(1)'
     },
     create:  {
-      locateStrategy: 'xpath',
-      selector: '//a[contains(text(),"Create")]',
+      locateStrategy: 'css selector',
+      selector: 'div.px-5:nth-child(3) > a:nth-child(1)',
     }
   }
 

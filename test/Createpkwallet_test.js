@@ -26,7 +26,7 @@ module.exports = {
             .isVisible('@emptypassword_validation2', function callback(result) {
                 result.value ===true ? browser.assert.ok("If password is empty, error is shown") : ''
             })
-            .setValue('@input_confirmpassword', '\ue004')
+            .setValue('@input_confirmpassword2', '\ue004')
             .isVisible('@emptyconfirmpassword_validation2', function callback(result) {
                 result.value === true ? browser.assert.ok("If confirm password is empty, error is shown") : ''
             })
@@ -35,7 +35,7 @@ module.exports = {
             .setValue('@input_privatekey', privatekey_1)
             .setValue('@input_walletname', 'Wallet Test')
             .setValue('@input_password', password_1)
-            .setValue('@input_confirmpassword', password_2)
+            .setValue('@input_confirmpassword2', password_2)
             .isVisible('@emptyconfirmpassword_validation2', function callback(result) {
                 result.value === true ? browser.assert.ok("If confirm password is different from password, error is shown") : ''
             })
@@ -49,13 +49,13 @@ module.exports = {
             .getValue('@input_password', function callback(result) {
                 result.value === "" ? browser.assert.ok("When clear button is clicked, password field is cleared") : ''
             })
-            .getValue('@input_confirmpassword', function callback(result) {
+            .getValue('@input_confirmpassword2', function callback(result) {
                 result.value === "" ? browser.assert.ok("When clear button is clicked, confirm password field is cleared") : ''
             })
             .setValue('@input_privatekey', privatekey_1)
             .setValue('@input_walletname', 'Wallet Test')
             .setValue('@input_password', password_1)
-            .setValue('@input_confirmpassword', password_1)
+            .setValue('@input_confirmpassword2', password_1)
             .click('@create2')
             .assert.visible('@createsuccessful_title', 'Wallet is successfully created when wallet name, password and confirm password are valid')
             .click('@show_privatekey')
@@ -71,7 +71,7 @@ module.exports = {
             .setValue("@input_walletname", "Wallet Test")
             .pause(1000)
             .setValue("@input_password", password_1)
-            .setValue("@input_confirmpassword", password_1)
+            .setValue("@input_confirmpassword2", password_1)
             .click("@create2")
             .isVisible('@duplicatename_validation', function callback(result){
                 result.value === true? browser.assert.ok("If wallet name is already taken, error is shown"): ''

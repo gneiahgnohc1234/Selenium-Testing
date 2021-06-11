@@ -5,9 +5,9 @@
 
   <testsuite name="Importaccount_test"
     errors="0" failures="0" hostname="" id="" package="Importaccount_test" skipped="0"
-    tests="1" time="12.71" timestamp="">
+    tests="1" time="11.19" timestamp="">
   
-    <testcase name="Import_account_test" classname="Importaccount_test" time="12.71" assertions="15">
+    <testcase name="Import_account_test" classname="Importaccount_test" time="11.19" assertions="15">
 
     
 

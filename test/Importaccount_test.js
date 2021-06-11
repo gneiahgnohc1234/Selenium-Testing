@@ -12,7 +12,7 @@ module.exports = {
             .navigate()
             .click("@create")
             .pause(500)
-            .click("@create")
+            .click("@createnew")
             .setValue("@input_walletname", "Wallet Test")
             .setValue("@input_password", password_1)
             .setValue("@input_confirmpassword", password_1)
@@ -48,13 +48,13 @@ module.exports = {
             .isVisible('@name_validation', function callback(result) {
                 result.value === true ? browser.assert.ok("If account name field is empty, error is shown") : ''
             })
-            .setValue('@password', '\ue004')
+            .setValue('@password5', '\ue004')
             .isVisible('@password_validation', function callback(result) {
                 result.value === true ? browser.assert.ok("If wallet password field is empty, error is shown") : ''
             })
             .setValue('@privatekey_field', privatekey_1)
             .setValue('@accountname', accountname)
-            .setValue('@password', password_1)
+            .setValue('@password6', password_1)
             .pause(500)
             .click('@clear')
             .getValue('@privatekey_field', callback = (result) => {
@@ -63,21 +63,21 @@ module.exports = {
             .getValue('@accountname', callback = (result) => {
                 result.value === "" ? browser.assert.ok('When clear button is clicked, Account name field is cleared') : ''
             })
-            .getValue('@password', callback = (result) => {
+            .getValue('@password6', callback = (result) => {
                 result.value === "" ? browser.assert.ok('When clear button is clicked, wallet password field is cleared') : ''
             })
             .setValue('@privatekey_field', privatekey_1)
             .setValue('@accountname', accountname)
-            .setValue('@password', password_2)
+            .setValue('@password6', password_2)
             .click('@import')
             .isVisible('@password_validation2', function callback(result) {
                 result.value === true ? browser.assert.ok("If wallet password is incorrect, error is shown") : ''
             })
             .click('@clear')
             //private key validation not implemented
-            .setValue('@privatekey_field', privatekey_1)
+            .setValue('@privatekey_field2', privatekey_1)
             .setValue('@accountname', accountname)
-            .setValue('@password', password_1)
+            .setValue('@password7', password_1)
             .click('@import')
         browser.assert.urlEquals('https://proximax-foundry.github.io/web-wallet-vuejs/#/created-account', 'When private key is valid, account name is valid and wallet password is correct, User account is successfully created.')
         account

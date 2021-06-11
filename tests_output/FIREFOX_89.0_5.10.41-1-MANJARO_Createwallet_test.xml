@@ -5,9 +5,9 @@
 
   <testsuite name="Createwallet_test"
     errors="0" failures="0" hostname="" id="" package="Createwallet_test" skipped="0"
-    tests="1" time="6.603" timestamp="">
+    tests="1" time="6.202" timestamp="">
   
-    <testcase name="Create-wallet_test" classname="Createwallet_test" time="6.603" assertions="13">
+    <testcase name="Create-wallet_test" classname="Createwallet_test" time="6.202" assertions="13">
 
     
 

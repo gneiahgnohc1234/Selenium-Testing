@@ -9,7 +9,7 @@ module.exports = {
             .click("@create")
         browser.assert.urlEquals('https://proximax-foundry.github.io/web-wallet-vuejs/#/create', 'When Create Button is clicked, user is navigated to the Select Wallet Creation Type page.')
         create
-            .click("@create")
+            .click("@createnew")
             browser.assert.urlEquals('https://proximax-foundry.github.io/web-wallet-vuejs/#/create-wallet', 'When Create Button is clicked, user is navigated to the Create Wallet page.')
         create
             .setValue("@input_walletname", "\ue004") //clicks tab,  more info: https://www.selenium.dev/selenium/docs/api/py/webdriver/selenium.webdriver.common.keys.html
@@ -59,7 +59,7 @@ module.exports = {
             //existing wallet name
             create
             .click("@create")
-            .click("@create")
+            .click("@createnew")
             .setValue("@input_walletname", "Wallet Test")
             .setValue("@input_password", password1)
             .setValue("@input_confirmpassword", password1)

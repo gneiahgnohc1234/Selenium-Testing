@@ -24,7 +24,9 @@ module.exports = {
             .pause(500)
             .click('@signin_title')
             .isVisible('@emptywallet_validation', function callback(result){
-                result.value === true? browser.assert.ok("If wallet field is empty, error is shown"): ''
+               /*  result.value === true? browser.assert.ok("If wallet field is empty, error is shown"): '' */
+              create
+               .assert.equal(result.value,true,"If wallet field is empty, error is shown")
             })
             .setValue("@inputpassword", '\ue004')
             .pause(500)

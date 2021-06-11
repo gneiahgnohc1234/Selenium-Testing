@@ -10,7 +10,7 @@ module.exports = {
             .navigate()
             .click("@create")
             .pause(500)
-            .click("@create")
+            .click("@createnew")
             .setValue("@input_walletname", "Wallet Test")
             .setValue("@input_password", password_1)
             .setValue("@input_confirmpassword", password_1)
@@ -47,24 +47,24 @@ module.exports = {
             })
             .setValue('@accountname', accountname)
             .pause(500)
-            .setValue('@password', password_1)
+            .setValue('@password2', password_1)
             .pause(500)
             .click('@clear')
             .getValue('@accountname', callback = (result) => {
                 result.value === "" ? browser.assert.ok('When clear button is clicked, Account name field is cleared') : ''
             })
-            .getValue('@password', callback = (result) => {
+            .getValue('@password3', callback = (result) => {
                 result.value === "" ? browser.assert.ok('When clear button is clicked, wallet password field is cleared') : ''
             })
             .setValue('@accountname', accountname)
-            .setValue('@password', password_2)
+            .setValue('@password3', password_2)
             .click('@create') 
             .isVisible('@password_validation2', function callback(result) {
                 result.value === true ? browser.assert.ok("If wallet password is incorrect, error is shown") : ''
             })
             .click('@clear')
             .setValue('@accountname', accountname)
-            .setValue('@password', password_1)
+            .setValue('@password4', password_1)
             .click('@create') 
             browser.assert.urlEquals('https://proximax-foundry.github.io/web-wallet-vuejs/#/created-account', 'When account name is valid and wallet password is correct, User account is successfully created.')
         account

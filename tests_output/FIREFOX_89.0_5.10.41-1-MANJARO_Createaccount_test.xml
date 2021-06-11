@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites errors="0"
+<testsuites errors="1"
             failures="0"
             tests="1">
 
   <testsuite name="Createaccount_test"
-    errors="0" failures="0" hostname="" id="" package="Createaccount_test" skipped="0"
-    tests="1" time="12.69" timestamp="">
+    errors="1" failures="0" hostname="" id="" package="Createaccount_test" skipped="0"
+    tests="1" time="0.03500" timestamp="">
   
-    <testcase name="Create-wallet_test" classname="Createaccount_test" time="12.69" assertions="13">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <testcase name="Create-wallet_test" classname="Createaccount_test" time="0.03500" assertions="0">
+    <error message="No selector property for element &#34;password8&#34;. Instead found properties: locateStrategy, selector" type="error"><![CDATA[
+    Error: No selector property for element &#34;password8&#34;. Instead found properties: locateStrategy, selector
+    at Element.setProperties (/home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/element/index.js:69:13)
+    at new Element (/home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/element/index.js:31:10)
+    at /home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/page-object/base-object.js:50:32
+    at Array.forEach (&lt;anonymous&gt;)
+    at /home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/page-object/base-object.js:40:24
+    at Array.forEach (&lt;anonymous&gt;)
+    at Function.createElements (/home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/page-object/base-object.js:39:14)
+    at new Page (/home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/page-object/index.js:21:28)
+    at PageObjectLoader.pageObjectDefinition (/home/jiaminglim/Desktop/vueJS/selenium/node_modules/nightwatch/lib/api/_loaders/page-object.js:35:12)
+    at Object.Create-wallet_test (/home/jiaminglim/Desktop/vueJS/selenium/test/Createaccount_test.js:8:36)
+    ]]></error>
     
     </testcase>
   
 
+  
+    <system-err>
+        Error: No selector property for element &#34;password8&#34;. Instead found properties: locateStrategy, selector
+       at Array.forEach (&lt;anonymous&gt;)
+       at Array.forEach (&lt;anonymous&gt;)
+       at Object.Create-wallet_test (/home/jiaminglim/Desktop/vueJS/selenium/test/Createaccount_test.js:8:36)
+    </system-err>
   
 
     

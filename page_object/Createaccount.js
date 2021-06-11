@@ -1,80 +1,110 @@
 module.exports = {
     elements: {
         account:{
-            locateStrategy:'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[1]/nav/a[3]'
+            locateStrategy:'css selector',
+            selector: '.relative > nav > a:nth-child(3)'
         },
         createaccount:{
-            locateStrategy:'xpath',
-            selector:'/html/body/div[1]/div/div/div/div[2]/div[1]/div[2]/a'
+            locateStrategy:'css selector',
+            selector:'.page > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)'
         },
         new:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div[2]/div/div/a[1]'
+            locateStrategy: 'css selector',
+            selector: 'a.inline-block:nth-child(1)'
         },
         from_privatekey:{
-            locateStrategy: 'xpath',
-            selector: '//a[contains(text(),"From a Private Key")]'
+            locateStrategy: 'css selector',
+            selector: 'a.inline-block:nth-child(2)'
         },
         accountname:{
-            locateStrategy: 'xpath',
-            selector: '//input[contains(@placeholder,"Account Name")]'
+            locateStrategy: 'css selector',
+            selector: 'input.bg-white'
         },
         password:{
-            locateStrategy: 'xpath',
-            selector: '//input[contains(@placeholder,"Enter Your Wallet Password")]'
+            locateStrategy: 'css selector',
+            selector: '.border-grey-300 > input:nth-child(2)'
+            
+        },
+        password2:{
+            locateStrategy: 'css selector',
+            selector: '.border-red-primary > input:nth-child(2)'
+        },
+        password3: {
+            locateStrategy: 'css selector',
+            selector: 'fieldset.w-full > div:nth-child(2) > div:nth-child(1) > input:nth-child(2)'
+        },
+        password4: {
+            locateStrategy: 'css selector',
+            selector: 'fieldset.w-full > div:nth-child(3) > div:nth-child(1) > input:nth-child(2)'
         },
         name_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div[2]/form/fieldset/div[1]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error-text'
         },
         password_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div[2]/form/fieldset/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error-password'
         },
         back:{
-            locateStrategy:'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div[1]/div[2]/a'
+            locateStrategy:'css selector',
+            selector: '.text-md > div:nth-child(2) > a:nth-child(1)'
         },
         clear:{
-            locateStrategy: 'xpath',
-            selector: '//button[contains(text(),"Clear")]'
+            locateStrategy: 'css selector',
+            selector: 'button.default-btn:nth-child(1)'
         },
         password_validation2:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div[2]/form/fieldset/div[1]'
+            locateStrategy: 'css selector',
+            selector: '.error'
         },
         create:{
-            locateStrategy: 'xpath',
-            selector: '//button[contains(text(),"Create")]'
+            locateStrategy: 'css selector',
+            selector: '.mt-10 > button:nth-child(2)'
         },
         show_privatekey:{
-            locateStrategy:'xpath',
-            selector:'//a[contains(text(),"Show Private Key")]'
+            locateStrategy:'css selector',
+            selector:'div.px-5:nth-child(1) > a:nth-child(1)'
         },
         hide_privatekey:{
-            locateStrategy:'xpath',
-            selector:'//a[contains(text(),"Hide Private Key")]'
+            locateStrategy:'css selector',
+            selector:'div.px-5:nth-child(1) > a:nth-child(1)'
         },
         privatekey:{
-            locateStrategy:'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div/div/div[4]/div/div[1]'
+            locateStrategy:'css selector',
+            selector: 'div.flex:nth-child(4) > div:nth-child(1) > div:nth-child(1)'
         },
         continue:{
-            locateStrategy: 'xpath',
-            selector: '//a[contains(text(),"Continue")]'
+            locateStrategy: 'css selector',
+            selector: 'div.px-5:nth-child(3) > a:nth-child(1)'
         },
         privatekey_field:{
-            locateStrategy: 'xpath',
-            selector: '//input[contains(@placeholder,"Enter Private Key")]'
+            locateStrategy: 'css selector',
+            selector: 'div.ml-1:nth-child(1) > div:nth-child(1) > input:nth-child(2)'
+        },
+        privatekey_field2:{
+            locateStrategy: 'css selector',
+            selector: 'fieldset.w-full > div:nth-child(2) > div:nth-child(1) > input:nth-child(2)'
         },
         privatekey_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div[2]/div[2]/form/fieldset/div[1]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error'
         },
         import:{
-            locateStrategy: 'xpath',
-            selector: '//button[contains(text(),"Import")]'
-        }
+            locateStrategy: 'css selector',
+            selector: 'button.default-btn:nth-child(2)'
+        },
+        password5:{
+            locateStrategy: 'css selector',
+            selector: '.border-2 > input:nth-child(2)'
+        },
+        password6:{
+            locateStrategy: 'css selector',
+            selector: 'fieldset.w-full > div:nth-child(4) > div:nth-child(1) > input:nth-child(2)'
+        },
+        password7:{
+            locateStrategy: 'css selector',
+            selector: 'fieldset.w-full > div:nth-child(5) > div:nth-child(1) > input:nth-child(2)'
+        },
+       
     }
 }

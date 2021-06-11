@@ -2,44 +2,44 @@ module.exports = {
     url : 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
     elements:{
         signin_button:{
-          locateStrategy: 'xpath',
-          selector: '//a[contains(text(),"Sign In")]'
+          locateStrategy: 'css selector',
+          selector: '.w-full'
         },
         wallet_dropdown:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/form/fieldset/div[1]/div[2]/div[1]/div[1]'
+            locateStrategy: 'css selector',
+            selector: '.selectPlugin > div:nth-child(1) > div:nth-child(1)'
         },
         remove_wallet:{
-            locateStrategy:'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/form/fieldset/div[1]/div[2]/div[1]/div[1]/a'
+            locateStrategy:'css selector',
+            selector:'.multiselect-clear'
         },
         emptywallet_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/form/fieldset/div[1]/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error'
         },
         emptypassword_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/form/fieldset/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error-password'
         },
         select_wallet:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/form/fieldset/div[1]/div[2]/div[1]/div[2]/span[1]'
+            locateStrategy: 'css selector',
+            selector: '.selectPlugin > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)'
         },
         inputpassword:{
-            locateStrategy:'xpath',
-            selector: '//input[contains(@placeholder,"Enter Wallet Password")]'
+            locateStrategy:'css selector',
+            selector: '.text-placeholder'
         },
         signin_title:{
-            locateStrategy:'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/h1'
+            locateStrategy:'css selector',
+            selector: '.default-title'
         },
         invalid_password:{
-            locateStrategy: 'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/div[2]/div/div[1]/div/div[1]/div/div[2]/form/fieldset/div[1]'
+            locateStrategy: 'css selector',
+            selector:'.error'
         },
         signin_button2:{
-            locateStrategy: 'xpath',
-            selector: '//button[contains(text(),"Sign In")]'
+            locateStrategy: 'css selector',
+            selector: 'button.default-btn:nth-child(2)'
           },
     }
 }

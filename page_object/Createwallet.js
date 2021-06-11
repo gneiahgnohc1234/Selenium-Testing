@@ -2,92 +2,101 @@ module.exports = {
     url : 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
     elements: {
         create:  {
-            locateStrategy: 'xpath',
-            selector: '//a[contains(text(),"Create")]',
+            locateStrategy: 'css selector',
+            selector: 'div.px-5:nth-child(3) > a:nth-child(1)',
+        },
+        createnew:{
+            locateStrategy: 'css selector',
+            selector: 'div.px-5:nth-child(1) > a:nth-child(3)'
         },
         emptyname_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error'
         },
         emptypassword_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[3]/div[1]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.mr-1 > div:nth-child(2) > div:nth-child(1)'
         },
         emptyconfirmpasword_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[3]/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.ml-1 > div:nth-child(2) > div:nth-child(1)'
         },
         create2: {
-            locateStrategy: 'xpath',
-            selector: '//button[text()="Create"]'
+            locateStrategy: 'css selector',
+            selector: 'button.default-btn:nth-child(2)'
         },
         clear_button: {
-            locateStrategy: 'xpath',
-            selector: '//button[contains(text(),"Clear")]'
+            locateStrategy: 'css selector',
+            selector: 'button.default-btn:nth-child(1)'
         },
         input_walletname: {
-            locateStrategy: 'xpath',
-            selector: '//input[contains(@placeholder,"Wallet Name")]'
+            locateStrategy: 'css selector',
+            selector: 'input.bg-white'
         },
         input_password: {
-            locateStrategy: 'xpath',
-            selector: '//input[contains(@placeholder,"Enter a New Password")]'
+            locateStrategy: 'css selector',
+            selector: '.mr-1 > div:nth-child(1) > input:nth-child(2)'
         },
         input_confirmpassword: {
-            locateStrategy: 'xpath',
-            selector: '//input[contains(@placeholder,"Confirm New Password")]'
+            locateStrategy: 'css selector',
+            selector: '.ml-1 > div:nth-child(1) > input:nth-child(2)'
+            
+        },
+        input_confirmpassword2:{
+            locateStrategy: 'css selector',
+            selector: '.grid > div:nth-child(2) > div:nth-child(1) > input:nth-child(2)'
         },
         createsuccessful_title:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/div/h1'
+            locateStrategy: 'css selector',
+            selector: 'h1.font-bold'
         },
         show_privatekey: {
-            locateStrategy: 'xpath',
-            selector: '//a[contains(text(),"Show Private Key")]',
+            locateStrategy: 'css selector',
+            selector: 'div.px-5:nth-child(1) > a:nth-child(1)',
         },
         privatekey:{
-            locateStrategy:'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/div/div/div[4]/div/div[1]',
+            locateStrategy:'css selector',
+            selector:'div.flex:nth-child(4) > div:nth-child(1) > div:nth-child(1)',
         },
         continue: {
-            locateStrategy: 'xpath',
-            selector: '//a[contains(text(),"Continue")]',
+            locateStrategy: 'css selector',
+            selector: 'div.px-5:nth-child(3) > a:nth-child(1)',
         },
         duplicatename_validation:{
-            locateStrategy:'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[1]'
+            locateStrategy:'css selector',
+            selector:'.error'
         },
         createfromprivatekey:{
-            locateStrategy:'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/div/div[2]/a'
+            locateStrategy:'css selector',
+            selector:'div.px-5:nth-child(2) > a:nth-child(3)'
         },
         input_privatekey:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[2]/div[1]/input'
+            locateStrategy: 'css selector',
+            selector: '.ml-1 >  div:nth-child(1) > input'
         },
         checkbox:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/label/input'
+            locateStrategy: 'css selector',
+            selector: '.h-5'
         },
         emptypk_validation:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/div/div/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector: '.error'
         },
         emptyname_validation2:{
-            locateStrategy: 'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[3]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector:'.error-text'
         },
         emptypassword_validation2:{
-            locateStrategy: 'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[4]/div[1]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector:'.mr-1 > div:nth-child(2) > div:nth-child(1)'
         },
         emptyconfirmpassword_validation2:{
-            locateStrategy: 'xpath',
-            selector:'/html/body/div[1]/div/div/div/div/div/form/div/div/div[4]/div[2]/div[2]/div'
+            locateStrategy: 'css selector',
+            selector:'.grid > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)'
         },
         createpk_title:{
-            locateStrategy: 'xpath',
-            selector: '/html/body/div[1]/div/div/div/div/div/form/h1'
+            locateStrategy: 'css selector',
+            selector: 'h1.font-bold'
         }
     }
 }
