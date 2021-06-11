@@ -43,6 +43,14 @@ const commands = [{
       .click('@signin_button2')
       .assert.urlEquals(browser + 'dashboard', 'User is successfully signed in with valid wallet name and password')
       .end()
+  },
+  signin(password) {
+    return this
+      .click('@signin_button')
+      .click('@wallet_dropdown')
+      .click('@select_wallet')
+      .setValue("@inputpassword", password)
+      .click('@signin_button2')
   }
 
 }];

@@ -8,7 +8,7 @@ module.exports = {
         //create an account
         create
             .navigate()
-            .createaccount(name,password)
+            .createwallet(name,password)
         //signin test
         signin
            .emptyfields_validation()

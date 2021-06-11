@@ -182,7 +182,7 @@ const commands = [{
             .end()
     },
     //reuse function
-    createaccount(name,password){
+    createwallet(name,password){
         return this
         .click("@create")
         .pause(500)
