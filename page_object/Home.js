@@ -1,55 +1,51 @@
 
+const elements = {
+  logo: '.w-32',
+  network_dropdown: '.p-dropdown-trigger-icon',
+  networks: 'li.p-dropdown-item-group:nth-child(1)',
+  home: '.font-normal',
+  signin_button: '.w-full',
+  signin_title: '.default-title',
+  signin_close: '.fixed',
+  siriusid: 'div.px-5:nth-child(2) > div:nth-child(1) > a:nth-child(1)',
+  siriusid_title: '.default-title',
+  wallet: 'div.w-16:nth-child(4) > a:nth-child(1)',
+  create: 'div.px-5:nth-child(3) > a:nth-child(1)',
+};
+
+const commands = [{
+  click_headercomponents(browser) {
+    return this
+      .pause(1000)
+      .click('@logo')
+      .assert.urlEquals(browser, 'When ProximaX logo is clicked, user is navigated to home screen.')
+      .click('@network_dropdown')
+      .assert.visible('@networks', 'When network dropdown button is clicked, list of available networks is shown.')
+      .click('@wallet')
+      .assert.urlEquals(browser + 'wallets', 'When Wallet is clicked, user is navigated to the wallets page.')
+      .click('@home')
+      .assert.urlEquals(browser, 'When Home is clicked, user is navigated to the home page.')
+      .click('@signin_button')
+      .assert.visible('@signin_title', 'When Sign In button is clicked, the Sign in pop-up appeared.')
+  },
+  click_homecomponents(browser) {
+    return this
+      .click('@signin_close')
+      .click("@create")
+      .assert.urlEquals(browser + 'create', 'When Create Button is clicked, user is navigated to the Select Wallet Creation Type page.')
+      .click('@home')
+      .click('@siriusid')
+      .assert.visible('@siriusid_title', 'When Sign In With Sirius ID button is clicked, the Sirius ID pop-up appeared')
+      .end()
+  }
+
+}];
+
 module.exports = {
-  url : 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
-  elements:{
-    logo:{
-      locateStrategy: 'css selector',
-      selector: '.w-32'
-    },
-    network_dropdown:{
-      locateStrategy: 'css selector',
-      selector: '.p-dropdown-trigger-icon'
-    },
-    mainnet:{
-      locateStrategy: 'xpath',
-      selector: '/html/body/div[6]/div/ul/li[2]'
-    },
-    testnet:{
-        locateStrategy: 'css selector',
-        selector: 'li.p-dropdown-item:nth-child(3)'
-    },
-    home:{
-      locateStrategy: 'css selector',
-      selector:'.font-normal'
-    },
-    signin_button:{
-      locateStrategy: 'css selector',
-      selector: '.w-full'
-    },
-    signin_title:{
-      locateStrategy: 'css selector',
-      selector: '.default-title'
-    },
-    signin_close:{
-      locateStrategy: 'css selector',
-      selector: '.fixed'
-    },
-    siriusid:{
-      locateStrategy: 'css selector',
-      selector: 'div.px-5:nth-child(2) > div:nth-child(1) > a:nth-child(1)'
-    },
-    siriusid_title:{
-      locateStrategy: 'css selector',
-      selector: '.default-title'
-    },
-    wallet:{
-      locateStrategy: 'css selector',
-      selector: 'div.w-16:nth-child(4) > a:nth-child(1)'
-    },
-    create:  {
-      locateStrategy: 'css selector',
-      selector: 'div.px-5:nth-child(3) > a:nth-child(1)',
-    }
+  elements: elements,
+  commands: commands,
+  url: function () {
+    return '${this.api.launchUrl}'
   }
 
 }
