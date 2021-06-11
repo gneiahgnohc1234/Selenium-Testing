@@ -70,13 +70,13 @@ const commands = [{
             .setValue("@input_walletname", name)
             .setValue("@input_password", password)
             .setValue("@input_confirmpassword", password2)
-            .isVisible('@emptyconfirmpasword_validation',callback = (result) =>{
+            .isVisible('@emptyconfirmpasword_validation', callback = (result) => {
                 this.assert.equal(result.value, true, 'If confirm password is different from password, error is shown')
             })
     },
-    create_wallet(browser,name,password){
-        return this 
-        .click("@clear_button")
+    create_wallet(browser, name, password) {
+        return this
+            .click("@clear_button")
             .setValue("@input_walletname", name)
             .setValue("@input_password", password)
             .setValue("@input_confirmpassword", password)
@@ -85,9 +85,9 @@ const commands = [{
             .click('@show_privatekey')
             .assert.visible('@privatekey', 'When Show private key button is clicked, private key is revealed.')
             .click('@continue')
-            .assert.urlEquals(browser,'When Continue button is clicked, user is navigated to the Home page.')
+            .assert.urlEquals(browser, 'When Continue button is clicked, user is navigated to the Home page.')
     },
-    existingname_validation(name,password){
+    existingname_validation(name, password) {
         return this
             .click("@create")
             .click("@createnew")
@@ -95,12 +95,104 @@ const commands = [{
             .setValue("@input_password", password)
             .setValue("@input_confirmpassword", password)
             .click("@create2")
-            .isVisible('@duplicatename_validation', callback = (result) =>{
+            .isVisible('@duplicatename_validation', callback = (result) => {
                 this.assert.equal(result.value, true, 'If wallet name is already taken, error is shown')
             })
-            .end();  
-    }
+            .end();
+    },
+    //create wallet with private key test
+    navigate_createpkwallet(browser) {
+        return this
+            .click("@create")
+            .assert.urlEquals(browser + 'create', 'When Create Button is clicked, user is navigated to the Select Wallet Creation Type page.')
+            .click('@createfromprivatekey')
+            .assert.urlEquals(browser + 'import-wallet', 'When Create Button is clicked, user is navigated to the Create Wallet with Private Key page.')
+    },
+    emptyfield_validation2() {
+        return this
+            .setValue('@input_privatekey', '\ue004')
+            .isVisible('@emptypk_validation', callback = (result) => {
+                this.assert.equal(result.value, true, 'If private key is empty, error is shown')
+            })
+            .setValue('@input_walletname', '\ue004')
+            .isVisible('@emptyname_validation2', function callback(result) {
+                this.assert.equal(result.value, true, 'If wallet name is empty, error is shown')
+            })
+            .setValue('@input_password', '\ue004')
+            .isVisible('@emptypassword_validation2', function callback(result) {
+                this.assert.equal(result.value, true, 'If password is empty, error is shown')
+            })
+            .setValue('@input_confirmpassword2', '\ue004')
+            .isVisible('@emptyconfirmpassword_validation2', function callback(result) {
+                this.assert.equal(result.value, true, 'If confirm password is empty, error is shown')
+            })
+    },
+    differentpassword_validation2(privatekey, name, password, password2) {
+        return this
+            .setValue('@input_privatekey', privatekey)
+            .setValue('@input_walletname', name)
+            .setValue('@input_password', password)
+            .setValue('@input_confirmpassword2', password2)
+            .isVisible('@emptyconfirmpassword_validation2', callback = (result) => {
+                this.assert.equal(result.value, true, 'If confirm password is different from password, error is shown')
+            })
+    },
+    clearbutton_validation2() {
+        return this
+            .click('@clear_button')
+            .getValue('@input_privatekey', callback = result => {
+                this.assert.equal(result.value, '', 'When clear button is clicked, private key field is cleared')
 
+            })
+            .getValue('@input_walletname', callback = result => {
+                this.assert.equal(result.value, '', 'When clear button is clicked, wallet name field is cleared')
+            })
+            .getValue('@input_password', callback = result => {
+                this.assert.equal(result.value, '', 'When clear button is clicked, password field is cleared')
+            })
+            .getValue('@input_confirmpassword2', callback = result => {
+                this.assert.equal(result.value, '', 'When clear button is clicked, confirm password field is cleared')
+            })
+    },
+    successful_create(browser, privatekey, name, password) {
+        return this
+            .setValue('@input_privatekey', privatekey)
+            .setValue('@input_walletname', name)
+            .setValue('@input_password', password)
+            .setValue('@input_confirmpassword2', password)
+            .click('@create2')
+            .assert.visible('@createsuccessful_title', 'Wallet is successfully created when wallet name, password and confirm password are valid')
+            .click('@show_privatekey')
+            .assert.visible('@privatekey', 'When Show private key button is clicked, private key is revealed.')
+            .click('@continue')
+            .assert.urlEquals(browser, 'When Continue button is clicked, user is navigated to the Home page.')
+    },
+    existingname_validation2(privatekey, name, password) {
+        return this
+            .click("@create")
+            .click("@createfromprivatekey")
+            .setValue('@input_privatekey', privatekey)
+            .setValue("@input_walletname", name)
+            .setValue("@input_password", password)
+            .setValue("@input_confirmpassword2", password)
+            .click("@create2")
+            .isVisible('@duplicatename_validation',  callback = result =>{
+                this.assert.equal(result.value, true, 'If wallet name is already taken, error is shown')
+            })
+            .end()
+    },
+    //reuse function
+    createaccount(name,password){
+        return this
+        .click("@create")
+        .pause(500)
+        .click("@createnew")
+        .setValue("@input_walletname", name)
+        .setValue("@input_password", password)
+        .setValue("@input_confirmpassword", password)
+        .click("@create2")
+        .click('@continue')
+    }
 }];
 
 module.exports = {
