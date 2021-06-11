@@ -9,7 +9,7 @@ module.exports = {
             .navigate()
             .click("@create")
             .pause(500)
-            .click("@create")
+            .click("@createnew")
             .setValue("@input_walletname", "Wallet Test")
             .setValue("@input_password", password_1)
             .setValue("@input_confirmpassword", password_1)
