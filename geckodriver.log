@@ -1,42 +1,14 @@
-1623232695922	geckodriver	INFO	Listening on 127.0.0.1:4444
-1623232696160	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQyLwu4"
-1623232696769	Marionette	INFO	Marionette enabled
+1623640869327	geckodriver	INFO	Listening on 127.0.0.1:4444
+1623640869565	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefIACy1"
+1623640870008	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilefIACy1/search.json.mozlz4", (void 0)))
 
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6288:33: Junk at end of value for background-color
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6289:17: '' is not a valid color name
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6296:11: 'button' is not a valid property name
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6313:4: Expected semicolon
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6380:18: 'none' is not a valid color name
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6426:0: Expected a valid selector
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.209: Theme parsing error: gtk.css:6438:13: not a number
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6288:33: Junk at end of value for background-color
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6289:17: '' is not a valid color name
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6296:11: 'button' is not a valid property name
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6313:4: Expected semicolon
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6380:18: 'none' is not a valid color name
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6426:0: Expected a valid selector
-
-(firefox:89728): Gtk-WARNING **: 17:58:17.287: Theme parsing error: gtk.css:6438:13: not a number
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQyLwu4/search.json.mozlz4", (void 0)))
-
-(firefox:89728): GLib-GIO-WARNING **: 17:58:18.060: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
-1623232698661	Marionette	INFO	Listening on port 36125
+(firefox:23464): GLib-GIO-WARNING **: 11:21:10.784: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1623640871337	Marionette	INFO	Listening on port 34085
 JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
 JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
 JavaScript error: resource://gre/modules/LoginManagerChild.jsm, line 194: NS_ERROR_XPC_JAVASCRIPT_ERROR_WITH_DETAILS: [JavaScript Error: "Invalid autocomplete selectedIndex" {file: "resource://gre/actors/AutoCompleteChild.jsm" line: 125}]'[JavaScript Error: "Invalid autocomplete selectedIndex" {file: "resource://gre/actors/AutoCompleteChild.jsm" line: 125}]' when calling method: [nsIAutoCompletePopup::selectedIndex]
-1623232707242	Marionette	INFO	Stopped listening on port 36125
+1623640884426	Marionette	INFO	Stopped listening on port 34085
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
