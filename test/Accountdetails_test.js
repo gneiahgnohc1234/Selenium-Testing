@@ -2,7 +2,7 @@ var password = "abcd1234";
 var password2 = 'abcd12345'
 var name = "Selenium";
 module.exports = {
-    "Create-account_test": function (browser) {
+    "Account-Details_test": function (browser) {
         var create = browser.page.Createwallet();
         var signin = browser.page.Signin();
         var account = browser.page.Accountdetails();

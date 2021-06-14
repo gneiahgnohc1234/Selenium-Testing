@@ -5,9 +5,9 @@
 
   <testsuite name="Accountdetails_test"
     errors="0" failures="0" hostname="" id="" package="Accountdetails_test" skipped="0"
-    tests="1" time="8.809" timestamp="">
+    tests="1" time="9.605" timestamp="">
   
-    <testcase name="Create-account_test" classname="Accountdetails_test" time="8.809" assertions="11">
+    <testcase name="Account-Details_test" classname="Accountdetails_test" time="9.605" assertions="11">
 
     
 

@@ -17,6 +17,7 @@ const elements = {
     privatekey:'div.absolute:nth-child(2)',
     password_validation:'.error',
     pk_passwordfield2:'.text-icon> text-placeholder'
+    
 }
 
 const commands = [{
