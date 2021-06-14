@@ -5,9 +5,17 @@
 
   <testsuite name="Createpkwallet_test"
     errors="0" failures="0" hostname="" id="" package="Createpkwallet_test" skipped="0"
-    tests="1" time="9.529" timestamp="">
+    tests="1" time="12.99" timestamp="">
   
-    <testcase name="Create-wallet-with-private-key_test" classname="Createpkwallet_test" time="9.529" assertions="19">
+    <testcase name="Create-wallet-with-private-key_test" classname="Createpkwallet_test" time="12.99" assertions="23">
+
+    
+
+    
+
+    
+
+    
 
     
 

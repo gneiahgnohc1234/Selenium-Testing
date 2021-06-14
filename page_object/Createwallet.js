@@ -33,7 +33,13 @@ const elements = {
     password_slash2:'.fa-eye-slash > path:nth-child(1)',
     confirmpassword_slash2:'div.ml-1:nth-child(2) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1) > path:nth-child(1)',
     password_eyeicon3:'.mr-1 > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)',
-    confirmpassword_eyeicon4: 'div.ml-1:nth-child(2) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)'
+    confirmpassword_eyeicon4: 'div.ml-1:nth-child(2) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)',
+    copy_address: 'div.flex:nth-child(2) > svg > path',
+    copy_public_key: 'div.flex:nth-child(3) > svg > path',
+   /*  copy_private_key: 'div.flex:nth-child(4) > svg > path', */
+    copy_prompt: '.p-toast-detail',
+    pk_eyeicon: 'div.ml-1:nth-child(3) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1) > path:nth-child(1)',
+    pk_slashicon:'.fa-eye-slash > path:nth-child(1)'
 };
 
 const commands = [{
@@ -95,11 +101,17 @@ const commands = [{
             .assert.visible('@createsuccessful_title', 'Wallet is successfully created when wallet name, password and confirm password are valid')
             .click('@show_privatekey')
             .assert.visible('@privatekey', 'When Show private key button is clicked, private key is revealed.')
+            .click('@copy_address')
+            .waitForElementVisible('@copy_prompt')
+            .pause(1000)
+            .click('@copy_public_key')
+            .waitForElementVisible('@copy_prompt')
             .click('@continue')
             .assert.urlEquals(browser, 'When Continue button is clicked, user is navigated to the Home page.')
     },
     existingname_validation(name, password) {
         return this
+            .pause(4000)
             .click("@create")
             .click("@createnew")
             .setValue("@input_walletname", name)
@@ -174,11 +186,17 @@ const commands = [{
             .assert.visible('@createsuccessful_title', 'Wallet is successfully created when wallet name, password and confirm password are valid')
             .click('@show_privatekey')
             .assert.visible('@privatekey', 'When Show private key button is clicked, private key is revealed.')
+            .click('@copy_address')
+            .waitForElementVisible('@copy_prompt')
+            .pause(1000)
+            .click('@copy_public_key')
+            .waitForElementVisible('@copy_prompt')
             .click('@continue')
             .assert.urlEquals(browser, 'When Continue button is clicked, user is navigated to the Home page.')
     },
     existingname_validation2(privatekey, name, password) {
         return this
+            .pause(4000)
             .click("@create")
             .click("@createfromprivatekey")
             .setValue('@input_privatekey', privatekey)
@@ -206,6 +224,10 @@ const commands = [{
     },
     pk_masked_password(){
         return this
+        .click('@pk_eyeicon')
+        .assert.elementPresent('@pk_slashicon',"When eye icon is clicked, Private key field is unmasked")
+        .click('@pk_slashicon')
+        .assert.elementPresent('@pk_eyeicon',"When eye icon is clicked, Private key field is masked again")
         .click('@password_eyeicon')
         .assert.elementPresent('@password_slash2', "When eye icon is clicked, password field is unmasked")
         .click('@confirmpassword_eyeicon3')
