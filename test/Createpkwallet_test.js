@@ -14,5 +14,6 @@ module.exports = {
             .clearbutton_validation2()
             .successful_create(browser.launch_url,privatekey,name,password)
             .existingname_validation2(privatekey, name, password)
+            .pk_masked_password()
     }
 }

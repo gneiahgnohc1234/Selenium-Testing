@@ -23,6 +23,17 @@ const elements = {
     emptypassword_validation2: '.mr-1 > div:nth-child(2) > div:nth-child(1)',
     emptyconfirmpassword_validation2: '.grid > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)',
     createpk_title: 'h1.font-bold',
+    password_eyeicon:'.mr-1 > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1) > path:nth-child(1)',
+    password_slash: '.fa-eye-slash',
+    confirmpassword_eyeicon:'.ml-1 > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)',
+    confirmpassword_slash: '.ml-1 > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)',
+    password_eyeicon2: '.fa-eye',
+    confirmpassword_eyeicon2: '.ml-1 > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)',
+    confirmpassword_eyeicon3:'div.ml-1:nth-child(2) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1) > path:nth-child(1)',
+    password_slash2:'.fa-eye-slash > path:nth-child(1)',
+    confirmpassword_slash2:'div.ml-1:nth-child(2) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1) > path:nth-child(1)',
+    password_eyeicon3:'.mr-1 > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)',
+    confirmpassword_eyeicon4: 'div.ml-1:nth-child(2) > div:nth-child(1) > div:nth-child(3) > svg:nth-child(1)'
 };
 
 const commands = [{
@@ -98,7 +109,6 @@ const commands = [{
             .isVisible('@duplicatename_validation', callback = (result) => {
                 this.assert.equal(result.value, true, 'If wallet name is already taken, error is shown')
             })
-            .end();
     },
     //create wallet with private key test
     navigate_createpkwallet(browser) {
@@ -176,22 +186,47 @@ const commands = [{
             .setValue("@input_password", password)
             .setValue("@input_confirmpassword2", password)
             .click("@create2")
-            .isVisible('@duplicatename_validation',  callback = result =>{
+            .isVisible('@duplicatename_validation', callback = result => {
                 this.assert.equal(result.value, true, 'If wallet name is already taken, error is shown')
             })
+    },
+    //eye icon
+    masked_password() {
+        return this
+            .click('@password_eyeicon')
+            .assert.elementPresent('@password_slash', "When eye icon is clicked, password field is unmasked")
+            .click('@confirmpassword_eyeicon')
+            .assert.elementPresent('@confirmpassword_slash', "When eye icon is clicked, confirm password field is unmasked")
+            .click('@password_slash')
+            .assert.elementPresent('@password_eyeicon2', "When eye icon is clicked, password field is masked again")
+            .click('@confirmpassword_slash')
+            .assert.elementPresent('@confirmpassword_eyeicon2', "When eye icon is clicked, confirm password field is masked again")
+            .pause(2000)
             .end()
     },
-    //reuse function
-    createwallet(name,password){
+    pk_masked_password(){
         return this
-        .click("@create")
-        .pause(500)
-        .click("@createnew")
-        .setValue("@input_walletname", name)
-        .setValue("@input_password", password)
-        .setValue("@input_confirmpassword", password)
-        .click("@create2")
-        .click('@continue')
+        .click('@password_eyeicon')
+        .assert.elementPresent('@password_slash2', "When eye icon is clicked, password field is unmasked")
+        .click('@confirmpassword_eyeicon3')
+        .assert.elementPresent('@confirmpassword_slash2',"When eye icon is clicked, confirm password field is unmasked")
+        .click('@password_slash2')
+        .assert.elementPresent('@password_eyeicon3', "When eye icon is clicked, password field is masked again")
+        .click('@confirmpassword_slash2')
+        .assert.elementPresent('@confirmpassword_eyeicon4', "When eye icon is clicked, confirm password field is masked again")
+
+    },
+    //reuse function
+    createwallet(name, password) {
+        return this
+            .click("@create")
+            .pause(500)
+            .click("@createnew")
+            .setValue("@input_walletname", name)
+            .setValue("@input_password", password)
+            .setValue("@input_confirmpassword", password)
+            .click("@create2")
+            .click('@continue')
     }
 }];
 
