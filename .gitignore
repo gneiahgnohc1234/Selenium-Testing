@@ -1,2 +1,3 @@
 node_modules
- **/*.log
+geckodriver.log
+tests_output
