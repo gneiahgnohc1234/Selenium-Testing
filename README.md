@@ -2,4 +2,4 @@
  npx nightwatch
 
 # To run unit test
- nightwatch tests/'File-To-be-tested'.js
+ nightwatch test/'File-To-be-tested'.js
