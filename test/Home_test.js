@@ -24,10 +24,9 @@ module.exports = {
       .click("@create_button")
       .pause(1000)
       .click("@show_Private_Key_a")
-      .click('')
+      //.click('')
       //.pause(1000)
-      //.click("@continue_a")
-      .pause()
-      //.end();
+      .click("@continue_a")
+      .end();
   },
 };

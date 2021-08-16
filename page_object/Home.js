@@ -1,6 +1,6 @@
 
 module.exports = {
-  url : 'http://localhost:8080/',
+  url : 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
   elements:{
     create_button:{
       locateStrategy: 'xpath',
@@ -20,17 +20,17 @@ module.exports = {
     },
     enter_password_input:  {
       locateStrategy: 'xpath',
-      selector: '//input[contains(@placeholder,"Enter a New Password")]'
+      selector: '//input[contains(@placeholder,"Enter New Password")]'
     },
     confirm_password_input:  {
       locateStrategy: 'xpath',
       selector: '//input[contains(@placeholder,"Confirm New Password")]'
     },
-    Show_Private_Key_a:  {
+    show_Private_Key_a:  {
       locateStrategy: 'xpath',
-      selector: '//a[contains(text(),"Show Private Key")]',
+      selector: '//a[contains(text(),"Show Private Key")]', 
     },
-    Continue_a:  {
+    continue_a:  {
       locateStrategy: 'xpath',
       selector: '//a[contains(text(),"Continue")]',
     },
