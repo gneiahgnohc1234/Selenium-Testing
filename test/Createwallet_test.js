@@ -11,7 +11,7 @@ module.exports = {
         var create = browser.page.Createwallet();
         create
             .navigate()
-            .navigate_createnewwallet(browser.launch_url)
+            .navigate_createpkwallet(browser.launch_url)
             //.emptyinput_pkwallet()
             //.create_pkwallet(browser.launch_url, privatekey, name, password)
             //.different_password_pk(privatekey, name, password, password2)
@@ -21,9 +21,8 @@ module.exports = {
             //.emptyinput_wallet()
             //.different_password(name, password, password2)
             //.password_length(name, shortpassword)
-            .create_wallet(browser.launch_url, name, password)
-            .existing_name(name, password)
-            //.duplicate_name(name, password);
+            .create_pkwallet(browser.launch_url, privatekey, name, password)
+            .existing_name_pk(privatekey, name, password)
             //.eye_icon()   
     }
 }

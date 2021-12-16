@@ -2,13 +2,11 @@ const elements = {
     
     back: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a',
     create: 'form > button',
-    //create: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > form > button:nth-child(6)',
     createnew: 'div.text-center.text-xs.text-blue-link.font-semibold > a',
     createnew_wallet: 'div.radio-toolbar.text-center > label:nth-child(2)',
     createnew_frompk: 'div.radio-toolbar.text-center > label:nth-child(4)',                                    
     createnew_backup: 'div.radio-toolbar.text-center > label:nth-child(6)',
     createsuccessful_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',          
-    //createsuccessful_title: 'div.modal-popup-box > div',                           
     close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(4) > a',
     next: 'a[href="#/create-wallet"]',
     pknext: 'a[href="#/import-wallet"]',
@@ -37,7 +35,8 @@ const elements = {
     error_duplicatename: 'form > div:nth-child(2) > div.error.error_box',
     error_pkpasswordnotmatch: 'form > div:nth-child(7) > div:nth-child(4) > div.error.error-password.text-left.my-2',
     error_pkpasswordlength: 'form > div:nth-child(7) > div:nth-child(3) > div.error.error-password.text-left.my-2',
-    error_invalidpk: 'form > div:nth-child(7) > div:nth-child(1) > div.error.error-password.text-left.my-2'
+    error_invalidpk: 'form > div:nth-child(7) > div:nth-child(1) > div.error.error-password.text-left.my-2',
+    error_pkduplicatename: 'form > div:nth-child(4) > div'
 }
 
 const commands = {
@@ -169,39 +168,23 @@ const commands = {
         })
     },
 
-    // duplicate_name(name, password){
-    //     return this
-    //     .click("@createnew")
-    //     //.assert.urlEquals(browser + 'create', 'Create acc wallet is clicked, user is navigated to wallet selection type.')
-    //     .click("@createnew_wallet")
-    //     .click("@next")
-    //     //.assert.urlEquals(browser + 'create-wallet', 'When next is clicked, user is navigated to create new wallet screen.')
-    //     //.click("@back")
-    //     //.assert.urlEquals(browser + 'create', 'When back is clicked, user is navigated back to wallet selection type.')
-    //     //.click("@next")
-    //     .click("@input_walletname")
-    //     .setValue("@input_walletname", name)
-    //     .setValue("@input_password", password)
-    //     .setValue("@input_confirmpassword", password)
-    //     .click("@create")
-    //     .pause(1000)
-    //     //.assert.visible('@createsuccessful_popup', 'Wallet is successfully created when wallet name, password and confirm password are valid')
-    //     .click("@close")
-    //     //.assert.urlEquals(browser, 'When close is clicked, user is navigated back to main page.')
-    //     //.pause(1000)
-    //     .pause(5000)
-    //     .click("@createnew")
-    //     .click("@createnew_wallet")
-    //     .click("@next")
-    //     .setValue("@input_walletname", name)
-    //     .setValue("@input_password", password)
-    //     .setValue("@input_confirmpassword", password)
-    //     .click("@create")
-    //     .pause(5000)
-    //     .isVisible('@error_duplicatename', callback = (result) => {
-    //         this.assert.equal(result.value, true, 'If wallet name is already taken, error is shown')
-    //     })
-    // },
+    // checks if waller name has existed before (for creating wallet from private key)
+    existing_name_pk(privatekey, name, password){
+        return this
+        .pause(5000)
+        .click("@createnew")
+        .click("@createnew_frompk")
+        .click("@pknext")
+        .setValue("@input_privatekey", privatekey)
+        .setValue("@input_pkwalletname", name)
+        .setValue("@input_pkpassword", password)
+        .setValue("@input_pkconfirmpassword", password)
+        .click("@create")
+        .pause(1000)
+        .isVisible('@error_pkduplicatename', callback = (result) => {
+            this.assert.equal(result.value, true, 'If wallet name is already taken, error is shown')
+        })
+    },
 
     // masking eye icon
     eye_icon(){

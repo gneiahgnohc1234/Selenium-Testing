@@ -36,13 +36,13 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName : 'chrome'
+        browserName : 'firefox'
       },
 
       webdriver: {
         start_process: true,
        // server_path: {}
-        server_path: (Services.chromedriver ? Services.chromedriver.path : '')
+        server_path: (Services.geckodriver ? Services.geckodriver.path : '')
       },
 
       //webStorageEnabled : true,
