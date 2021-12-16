@@ -26,6 +26,9 @@ module.exports = {
       disable_error_log: false,
       launch_url: 'https://proximax-foundry.github.io/web-wallet-vuejs/#/',
 
+
+      
+
       screenshots: {
         enabled: false,
         path: 'screens',
@@ -33,14 +36,16 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName : 'firefox'
+        browserName : 'chrome'
       },
 
       webdriver: {
         start_process: true,
        // server_path: {}
-        server_path: (Services.geckodriver ? Services.geckodriver.path : '')
-      }
+        server_path: (Services.chromedriver ? Services.chromedriver.path : '')
+      },
+
+      //webStorageEnabled : true,
     },
 
     
@@ -73,9 +78,8 @@ module.exports = {
     chrome: {
       desiredCapabilities : {
         browserName : 'chrome',
-        chromeOptions : {
+        'goog:chromeOptions' : {
           // This tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
-          // w3c: false,
           // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
           args: [
             //'--no-sandbox',
@@ -126,6 +130,7 @@ module.exports = {
       }
     },
 
+
     'browserstack.chrome': {
       extends: 'browserstack',
       desiredCapabilities: {
@@ -159,6 +164,8 @@ module.exports = {
         }
       }
     },
+
+    
 
     //////////////////////////////////////////////////////////////////////////////////
     // Configuration for when using the Selenium service, either locally or remote,  |
