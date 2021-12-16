@@ -36,10 +36,21 @@ const elements = {
     error_pkpasswordnotmatch: 'form > div:nth-child(7) > div:nth-child(4) > div.error.error-password.text-left.my-2',
     error_pkpasswordlength: 'form > div:nth-child(7) > div:nth-child(3) > div.error.error-password.text-left.my-2',
     error_invalidpk: 'form > div:nth-child(7) > div:nth-child(1) > div.error.error-password.text-left.my-2',
-    error_pkduplicatename: 'form > div:nth-child(4) > div'
+    error_pkduplicatename: 'form > div:nth-child(4) > div',
+    signin_here: 'form > div:nth-child(8) > a',
+    signin_herepk: 'form > div:nth-child(10) > a',
+    signin_herebackup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(9) > a'
 }
 
 const commands = {
+
+    navigate_mainpage(){
+        return this
+        .pause(1000)
+        .click("@back")
+        .pause(1000)
+        .click("@back")
+    },
 
     // create new wallet navigation
     navigate_createnewwallet(browser){
@@ -51,6 +62,11 @@ const commands = {
         .assert.urlEquals(browser + 'create-wallet', 'When next is clicked, user is navigated to create new wallet screen.')
         .click("@back")
         .assert.urlEquals(browser + 'create', 'When back is clicked, user is navigated back to wallet selection type.')
+        .click("@next")
+        .click("@signin_here")
+        .assert.urlEquals(browser, 'When sign in here is clicked, user is navigated back to the main page for sign in.')
+        .click("@createnew")
+        .click("@createnew_wallet")
         .click("@next")
     },
 
@@ -66,6 +82,11 @@ const commands = {
         .assert.urlEquals(browser + 'create', 'When back is clicked, user is navigated back to wallet selection type.')
         .click("@createnew_frompk")
         .click("@pknext")
+        .click("@signin_herepk")
+        .assert.urlEquals(browser, 'When sign in here is clicked, user is navigated back to the main page for sign in.')
+        .click("@createnew")
+        .click("@createnew_frompk")
+        .click("@pknext")
     },
 
     // create backup wallet navigation
@@ -78,6 +99,11 @@ const commands = {
         .assert.urlEquals(browser + 'backup-wallet', 'When next is clicked, user is navigated to create backup wallet screen.')
         .click("@back")
         .assert.urlEquals(browser + 'create', 'When back is clicked, user is navigated back to wallet selection type.')
+        .click("@createnew_backup")
+        .click("@backupnext")
+        .click("@signin_herebackup")
+        .assert.urlEquals(browser, 'When sign in here is clicked, user is navigated back to the main page for sign in.')
+        .click("@createnew")
         .click("@createnew_backup")
         .click("@backupnext")
     },
