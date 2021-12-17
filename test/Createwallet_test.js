@@ -16,23 +16,39 @@ module.exports = {
             .different_password(name, password, password2)
             .navigate_mainpage()
             .navigate_createnewwallet(browser.launch_url)
+            .password_length(name, shortpassword)
+            .navigate_mainpage()
+            .navigate_createnewwallet(browser.launch_url)
             .create_wallet(browser.launch_url, name, password)
             .existing_name(name, password)
             .eye_icon()
     },
 
-    // "Create-pkwallet_test": (browser) => {
-    //     var create = browser.page.Createwallet();
-    //     create
-    //         .navigate()
-    //         .navigate_createpkwallet(browser.launch_url)
-    //         .emptyinput_pkwallet()
-    //         .different_password_pk(privatekey, name, password, password2)
-    //         .navigate_mainpage()
-    //         //.navigate_createpkwallet(browser.launch_url)
-    //         //.create_pkwallet(browser.launch_url, privatekey, name, password)
-    //         //.existing_name_pk(privatekey, name, password)
-    //         //.eye_icon_pk()
-    // }
+    "Create-pkwallet_test": (browser) => {
+        var create = browser.page.Createwallet();
+        create
+            .navigate()
+            .navigate_createpkwallet(browser.launch_url)
+            .emptyinput_pkwallet()
+            .different_password_pk(privatekey, name, password, password2)
+            .navigate_mainpage()
+            .navigate_createpkwallet(browser.launch_url)
+            .password_length_pk(privatekey, name, shortpassword)
+            .navigate_mainpage()
+            .navigate_createpkwallet(browser.launch_url)
+            .invalid_privatekey(privatekey1, privatekey2)
+            .navigate_mainpage()
+            .navigate_createpkwallet(browser.launch_url)
+            .create_pkwallet(browser.launch_url, privatekey, name, password)
+            .existing_name_pk(privatekey, name, password)
+            .eye_icon_pk()
+    },
+
+    "Create-backupwallet_test": (browser) => {
+        var create = browser.page.Createwallet();
+        create
+            .navigate()
+            .navigate_createbackupwallet(browser.launch_url)
+    }
 
 }

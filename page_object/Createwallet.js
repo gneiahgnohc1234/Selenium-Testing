@@ -46,9 +46,10 @@ const commands = {
 
     navigate_mainpage(){
         return this
-        .pause(1000)
+        .pause(5000)
+        .waitForElementVisible("@back")
         .click("@back")
-        .pause(1000)
+        .pause(5000)
         .click("@back")
     },
 
@@ -60,9 +61,6 @@ const commands = {
         .click("@createnew_wallet")
         .click("@next")
         .assert.urlEquals(browser + 'create-wallet', 'When next is clicked, user is navigated to create new wallet screen.')
-        .click("@back")
-        .assert.urlEquals(browser + 'create', 'When back is clicked, user is navigated back to wallet selection type.')
-        .click("@next")
         .click("@signin_here")
         .assert.urlEquals(browser, 'When sign in here is clicked, user is navigated back to the main page for sign in.')
         .click("@createnew")
@@ -78,10 +76,6 @@ const commands = {
         .click("@createnew_frompk")
         .click("@pknext")
         .assert.urlEquals(browser + 'import-wallet', 'When next is clicked, user is navigated to create pk wallet screen.')
-        .click("@back")
-        .assert.urlEquals(browser + 'create', 'When back is clicked, user is navigated back to wallet selection type.')
-        .click("@createnew_frompk")
-        .click("@pknext")
         .click("@signin_herepk")
         .assert.urlEquals(browser, 'When sign in here is clicked, user is navigated back to the main page for sign in.')
         .click("@createnew")
