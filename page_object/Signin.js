@@ -18,9 +18,9 @@ const commands = {
 
     signin_dashboard(browser, password){
         return this
-        //.waitForElementVisible("@clearinput_password")
-        .pause(5000)
-        .clearValue("@clearinput_password")
+        .click("@wallet_dropdown")
+        .click("@select_wallet")
+        .click("@input_password")
         .setValue("@input_password", password)
         .click("@sign_in")
         .assert.urlEquals(browser + 'dashboard', 'User is successfully signed in with valid wallet name and password')

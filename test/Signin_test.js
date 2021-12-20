@@ -16,11 +16,11 @@ module.exports = {
         // sign in test
         signin
            .empty_password()
+           .signin_dashboard(browser.launch_url, password)
+           .signout_dashboard()
            .wrong_password(password2)
            .eye_icon()
-           //.signin_dashboard(browser.launch_url, password)
-           //.signout_dashboard()
 
-    },
+    }
     
 }
