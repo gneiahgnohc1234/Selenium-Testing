@@ -1,25 +1,35 @@
-var password = "abcd1234";
+var name = "Selenium"
+var password = "abcd1234"
 var password2 = "abcd12345"
-var name = "Selenium";
+
+
 module.exports = {
+
     "Create-account_test": function (browser) {
+
         var create = browser.page.Createwallet();
         var signin = browser.page.Signin();
         var account = browser.page.Createaccount();
-        //create wallet
+
+        // create wallet
         create
             .navigate()
-            .createwallet(name,password)
-        //signin
+            .navigate_createnewwallet(browser.launch_url)
+            .create_wallet(browser.launch_url, name, password)
+
+        // sign in
         signin
-            .signin(password)
+            .signin_dashboard(browser.launch_url, password)
+
         //create new account
         account
+            .navigate_createaccount(browser.launch_url)
             .navigate_createnewaccount(browser.launch_url)
-            .emptyfield_validation()
-            .clearbutton_validation(name,password)
-            .wrongpassword_validation(name,password2)
-            .createsuccessful(browser.launch_url,name,password)
-            .existingname_validation(name,password)
+            .empty_inputaccount()
+            //.wrong_walletpassword(name, password2)
+            //.eye_icon()
+            .create_account(name, password)
     }
+
+
 }
