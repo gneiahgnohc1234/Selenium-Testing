@@ -287,16 +287,12 @@ const commands = {
     },
 
     // checks if the private key is invalid
-    invalid_privatekey(privatekey1, privatekey2){
+    invalid_privatekey(privatekey){
         return this
         .click("@input_privatekey")
-        .setValue("@input_privatekey", privatekey1)
+        .setValue("@input_privatekey", privatekey)
         .isVisible('@error_invalidpk', callback = (result) => {
             this.assert.equal(result.value, true, 'If password length is less than required minimum, error is shown')
-        })
-        .setValue("@input_privatekey", privatekey2)
-        .isVisible('@error_invalidpk', callback = (result) => {
-            this.assert.equal(result.value, true, 'If password length is more than required maximum, error is shown')
         })
     }
 

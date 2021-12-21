@@ -4,7 +4,6 @@ var password2 = 'abcd12345'
 var shortpassword = 'abc'
 var privatekey = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44E0'
 var privatekey1 = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44E'
-var privatekey2 = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44E0000'
 
 module.exports = {
     "Create-wallet_test": (browser) => {
@@ -36,7 +35,7 @@ module.exports = {
             .password_length_pk(privatekey, name, shortpassword)
             .navigate_mainpage()
             .navigate_createpkwallet(browser.launch_url)
-            .invalid_privatekey(privatekey1, privatekey2)
+            .invalid_privatekey(privatekey1)
             .navigate_mainpage()
             .navigate_createpkwallet(browser.launch_url)
             .create_pkwallet(browser.launch_url, privatekey, name, password)
