@@ -7,22 +7,23 @@ const elements = {
     create_account: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > a',
     createnew_account: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a:nth-child(1)',
     createnew_frompk: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a:nth-child(2)',
-    copy_address: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(7) > svg > path',
-    copy_publickey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(10) > svg > path',
-    copyaddress_successful: 'body > div:nth-child(9) > div:nth-child(1)',
-    copypublickey_successful: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
+    //copy_address: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(7) > svg > path',
+    //copy_publickey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(10) > svg > path',
+    //copyaddress_successful: 'body > div:nth-child(9) > div:nth-child(1)',
+    //copypublickey_successful: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     createsuccessful_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',
     input_accountname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > input',
     input_walletpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > input',
     home_icon: '#app > div:nth-child(1) > header > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a > img',
     empty_accountname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div.error.error-text.text-left.my-2',
     empty_walletpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div.error.error-password.text-left.my-2',
-    //enter_passwordpopup: '',
+    error_existingname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)',
+    //enter_passwordpopup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1)',
     wrong_walletpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)',
     password_eyeicon: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > svg > path',
     public_key: '#public',
     private_key: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(1)',
-    view_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > svg > path'
+    //view_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > svg > path'
 
 }
 
@@ -112,16 +113,30 @@ const commands = {
         .isVisible('@private_key', callback = (result) => {
             this.assert.equal(result.value, true, 'If account is successfully created, private key is available')
         })
-        .click("@copy_address")
-        .isVisible('@copyaddress_successful', callback = (result) => {
-            this.assert.equal(result.value, true, 'If user clicks copy address, a notification is shown')
-        })
-        .click("@copy_publickey")
-        .isVisible('@copypublickey_successful', callback = (result) => {
-            this.assert.equal(result.value, true, 'If user clicks copy public key, a notification is shown')
-        })
-        .click("@view_privatekey")
+        // .click("@copy_address")
+        // .isVisible('@copyaddress_successful', callback = (result) => {
+        //     this.assert.equal(result.value, true, 'If user clicks copy address, a notification is shown')
+        // })
+        // .click("@copy_publickey")
+        // .isVisible('@copypublickey_successful', callback = (result) => {
+        //     this.assert.equal(result.value, true, 'If user clicks copy public key, a notification is shown')
+        // })
+        // .click("@view_privatekey")
+        // .isVisible('@enter_passwordpopup', callback = (result) => {
+        //     this.assert.equal(result.value, true, 'If user clicks to view private key, it will prompt for user to enter password')
+        // })
+    },
 
+    existing_name(name, password){
+        return this
+        .click("@create_account")
+        .click("@createnew_account")
+        .setValue("@input_accountname", name)
+        .setValue("@input_walletpassword", password)
+        .click("@create")
+        .isVisible('@error_existingname', function callback(result) {
+            this.assert.equal(result.value, true, 'If account name is taken, error is shown')
+        })
     }
 
     

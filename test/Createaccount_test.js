@@ -29,6 +29,7 @@ module.exports = {
             //.wrong_walletpassword(name, password2)
             //.eye_icon()
             .create_account(name, password)
+            .existing_name(name, password)
     }
 
 
