@@ -24,25 +24,45 @@ module.exports = {
         signin
             .signin_dashboard(browser.launch_url, password)
 
-        //create new account
+        // create new account
         account
-            // .navigate_createaccount(browser.launch_url)
-            // .navigate_createnewaccount(browser.launch_url)
-            // .empty_inputaccount()
-            // //.wrong_walletpassword(name, password2)
-            // //.eye_icon()
-            // .create_account(name, password)
-            // .existing_name(name, password)
+            .navigate_createaccount(browser.launch_url)
+            .navigate_createnewaccount(browser.launch_url)
+            .empty_inputaccount()
+            .wrong_walletpassword(name, password2)
+            .eye_icon()
+            .create_account(name, password)
+            .existing_name(name, password)
+            
+    },
 
+    "Create-account-frompk_test": function (browser) {
+
+        var create = browser.page.Createwallet();
+        var signin = browser.page.Signin();
+        var account = browser.page.Createaccount();
+
+        // create wallet
+        create
+            .navigate()
+            .navigate_createnewwallet(browser.launch_url)
+            .create_wallet(browser.launch_url, name, password)
+
+        // sign in
+        signin
+            .signin_dashboard(browser.launch_url, password)
+
+        // create new account from private key
+        account
             .navigate_createaccount(browser.launch_url)
             .navigate_createnewfrompk(browser.launch_url)
+            .empty_inputaccount_pk()
+            .wrong_walletpassword_pk(privatekey, name, password2)
+            .eye_icon_pk()
             .invalid_privatekey(privatekey1)
-            //.empty_inputaccount_pk()
-            //.wrong_walletpassword_pk(privatekey, name, password2)
-            //.eye_icon_pk()
-            //.create_account_pk(privatekey, name, password)
-            //.existing_name_pk(privatekey, name, password)
-            //.existing_privatekey(privatekey, name2, password)
+            .create_account_pk(privatekey, name, password)
+            .existing_name_pk(privatekey, name, password)
+            .existing_privatekey(privatekey, name2, password)
 
     }
 

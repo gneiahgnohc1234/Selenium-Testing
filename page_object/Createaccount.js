@@ -123,7 +123,6 @@ const commands = {
         .click('@password_eyeicon')
         .assert.elementPresent('@password_eyeicon', "When eye icon is clicked, password field is masked again")
         .pause(2000)
-        .end()
     },
 
     eye_icon_pk(){
@@ -137,11 +136,12 @@ const commands = {
         .click('@password_eyeicon_pk')
         .assert.elementPresent('@password_eyeicon_pk', "When eye icon is clicked, password field is masked again")
         .pause(2000)
-        .end()
     },
 
     create_account(name, password){
         return this
+        .click("@create_account")
+        .click("@createnew_account")
         .click("@input_accountname")
         .setValue("@input_accountname", name)
         .setValue("@input_walletpassword", password)
@@ -178,6 +178,8 @@ const commands = {
 
     create_account_pk(privatekey, name, password){
         return this
+        .click("@create_account")
+        .click("@createnew_frompk")
         .click("@input_privatekey")
         .setValue("@input_privatekey", privatekey)
         .setValue("@input_accountname_pk", name)
@@ -242,6 +244,8 @@ const commands = {
 
     invalid_privatekey(privatekey){
         return this
+        .click("@create_account")
+        .click("@createnew_frompk")
         .click("@input_privatekey")
         .setValue("@input_privatekey", privatekey)
         .isVisible('@error_invalidpk', callback = (result) => {
