@@ -27,7 +27,9 @@ module.exports = {
             // .empty_input()
             // .edit_accountname(name)
             // .existing_name(name)
-            .show_privatekey(password, password2)
+            // .copy_instances()
+            // .show_privatekey(password, password2)
+            .download_walletpaper(password)
 
     }
 }

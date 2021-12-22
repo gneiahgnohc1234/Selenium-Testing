@@ -5,24 +5,32 @@ const elements = {
     accountdetails_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)',
     back: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a',
     copy_address: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(7) > svg > path',
+    copyaddress_popup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     copy_publickey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(10) > svg > path',
+    copypublickey_popup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     copy_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(3) > svg:nth-child(2) > path',
     confirm_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3)',
+    confirm_button2: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3)',
     cancel_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(5)',
     cancel_button2: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(4)',
-    download_walletpaper: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(1)',
+    cancel_button3: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5)',
+    cancel_button4: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4)',
+    download_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(1)',
+    download_passwordpopup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(2) > div:nth-child(1)',
     edit_nameicon: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > img',
     enter_passwordpopup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1)',
     error_emptyname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div.error.error_box.mb-3',
     error_existingname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div.error.error_box.mb-3',
     error_emptypassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div.error.error_box.mb-3',
+    error_emptypassword2: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(2) > div:nth-child(1) > div.error.error_box.mb-3',
     error_wrongpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div.error.error_box.mb-3',
     input_accountname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input',
     input_password: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input',
+    input_password2: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(14) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input',
     password_eyeicon: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > svg > path',
     private_key: '#private',
     private_keyhidden: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(1)',
-    pk_successfulpopup: 'body > div:nth-child(9) > div:nth-child(1)',
+    pk_successfulpopup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     hide_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(3) > svg:nth-child(3) > path',
     view_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > svg > path',
 
@@ -68,6 +76,44 @@ const commands = {
         .click("@edit_nameicon")
         .pause(1000)
         .assert.containsText('@accountname_value', name, 'Account name has successfully edited.')
+
+    },
+
+    copy_instances(){
+        return this
+        .click("@copy_address")
+        .isVisible('@copyaddress_popup', callback = (result) => {
+            this.assert.equal(result.value, true, 'If user clicks to copy wallet address, a notification is shown')
+        })
+        .click("@copy_publickey")
+        .isVisible('@copypublickey_popup', callback = (result) => {
+            this.assert.equal(result.value, true, 'If user clicks to copy public key, a notification is shown')
+        })
+    },
+
+    download_walletpaper(password){
+        return this
+        .click("@download_button")
+        .isVisible('@download_passwordpopup', callback = (result) => {
+            this.assert.equal(result.value, true, 'If user clicks to download wallet paper, it will prompt for user to enter password')
+        })
+        .click("@input_password2")
+        .click("@confirm_button2")
+        .isVisible('@error_emptypassword2', callback = (result) => {
+            this.assert.equal(result.value, true, 'If password field has no input, it will show an error')
+        })
+        .click("@cancel_button3")
+        .pause(1000)
+        .click("@back")
+        .click("@account")
+        .click("@download_button")
+        .click("@input_password2")
+        .setValue("@input_password2", password)
+        .pause(1000)
+        .click("@cancel_button4")
+        .isVisible('@accountdetails_tab', callback = result => {
+            this.assert.equal(result.value, true, "If user clicks cancel, user is navigated back to account details page")
+        })
 
     },
 
