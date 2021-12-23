@@ -45,6 +45,7 @@ const elements = {
     pk_successfulpopup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     hide_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(3) > svg:nth-child(3) > path',
     view_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > svg > path',
+    transfer_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(3) > div:nth-child(5) > a:nth-child(1) > div:nth-child(2)'
 
 }
 
@@ -65,6 +66,7 @@ const commands = {
         .setValue('@input_accountname','\ue003\ue003\ue003\ue003\ue003\ue003\ue003\ue003')
         .click("@edit_nameicon")
         .assert.elementPresent('@error_emptyname', 'When account name is empty, error is shown')
+        .pause(2000)
     },
 
     existing_name(name){
@@ -74,6 +76,8 @@ const commands = {
         .setValue("@input_accountname", name)
         .click("@edit_nameicon")
         .assert.elementPresent('@error_existingname',' When account name is already taken, error is shown')
+        .click("@back")
+        .click("@account")
     },
 
     edit_accountname(name){
@@ -86,9 +90,9 @@ const commands = {
         .setValue('@input_accountname','\ue003\ue003\ue003\ue003\ue003\ue003\ue003\ue003')
         .setValue("@input_accountname", name)
         .click("@edit_nameicon")
-        .pause(1000)
+        .pause(2000)
         .assert.containsText('@accountname_value', name, 'Account name has successfully edited.')
-
+    
     },
 
     copy_instances(){
@@ -101,6 +105,13 @@ const commands = {
         .isVisible('@copypublickey_popup', callback = (result) => {
             this.assert.equal(result.value, true, 'If user clicks to copy public key, a notification is shown')
         })
+    },
+
+    transfer_xpx(browser){
+        return this
+        .click("@transfer_button")
+        .assert.urlEquals(browser + 'create-transfer', 'When transfer xpx button is clicked, user is directed to create transfer page')
+
     },
 
     delete_account(browser, password, password2){
@@ -164,6 +175,7 @@ const commands = {
         .isVisible('@accountdetails_tab', callback = result => {
             this.assert.equal(result.value, true, "If user clicks cancel, user is navigated back to account details page")
         })
+        .pause(2000)
         .click("@download_button")
         .click("@input_password2")
         .setValue("@input_password2", password2)
@@ -173,15 +185,15 @@ const commands = {
         })
         .click("@cancel_button3")
         .click("@back")
-        .click("@account")
-        .click("@download_button")
-        .click("@input_password2")
-        .setValue("@input_password2", password)
-        .click("@password_eyeicon2")
-        .assert.elementPresent('@password_eyeicon2', "When eye icon is clicked, password field is unmasked")
-        .pause(1000)
-        .click("@confirm_button2")
-        .pause(5000)
+        // .click("@account")
+        // .click("@download_button")
+        // .click("@input_password2")
+        // .setValue("@input_password2", password)
+        // .click("@password_eyeicon2")
+        // .assert.elementPresent('@password_eyeicon2', "When eye icon is clicked, password field is unmasked")
+        // .pause(1000)
+        // .click("@confirm_button2")
+        // .pause(5000)
 
     },
 

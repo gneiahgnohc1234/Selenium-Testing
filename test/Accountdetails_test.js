@@ -22,22 +22,25 @@ module.exports = {
         signin
             .signin_dashboard(browser.launch_url, password)
 
-        // create new account
-        createaccount
-            .navigate_createaccount(browser.launch_url)
-            .navigate_createnewaccount(browser.launch_url)
-            .create_account(name, password)
+        // // create new account
+        // createaccount
+        //     .navigate_createaccount(browser.launch_url)
+        //     .navigate_createnewaccount(browser.launch_url)
+        //     .create_account(name, password)
 
         // account details
         account
-            // .navigate_accountdetails()
+            .navigate_accountdetails()
             // .empty_input()
             // .edit_accountname(name)
             // .existing_name(name)
-            // .copy_instances()
             // .show_privatekey(password, password2)
-            // .download_walletpaper(password, password2)
-            .delete_account(browser.launch_url, password, password2)
+            .download_walletpaper(password, password2)
+            // .copy_instances()
+            // .delete_account(browser.launch_url, password, password2)
+            // .transfer_xpx(browser.launch_url)
 
     }
+
+
 }
