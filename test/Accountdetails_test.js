@@ -8,6 +8,34 @@ module.exports = {
     "Account-Details_test": function (browser) {
 
         var create = browser.page.Createwallet();
+        var signin = browser.page.Signin();
+        var account = browser.page.Accountdetails();
+
+        // create wallet
+        create
+            .navigate()
+            .navigate_createnewwallet(browser.launch_url)
+            .create_wallet(browser.launch_url, name, password)
+
+        // sign in
+        signin
+            .signin_dashboard(browser.launch_url, password)
+
+        // account details
+        account
+            .navigate_accountdetails()
+            .empty_input()
+            .edit_accountname(name)
+            .existing_name(name)
+            .show_privatekey(password, password2)
+            .copy_instances()
+
+    },
+
+    // to test delete account
+    "Account-details_test2": function (browser) {
+
+        var create = browser.page.Createwallet();
         var createaccount = browser.page.Createaccount();
         var signin = browser.page.Signin();
         var account = browser.page.Accountdetails();
@@ -22,23 +50,18 @@ module.exports = {
         signin
             .signin_dashboard(browser.launch_url, password)
 
-        // // create new account
-        // createaccount
-        //     .navigate_createaccount(browser.launch_url)
-        //     .navigate_createnewaccount(browser.launch_url)
-        //     .create_account(name, password)
+        // create new account
+        createaccount
+            .navigate_createaccount(browser.launch_url)
+            .navigate_createnewaccount(browser.launch_url)
+            .create_account(name, password)
 
         // account details
         account
             .navigate_accountdetails()
-            // .empty_input()
-            // .edit_accountname(name)
-            // .existing_name(name)
-            // .show_privatekey(password, password2)
             .download_walletpaper(password, password2)
-            // .copy_instances()
-            // .delete_account(browser.launch_url, password, password2)
-            // .transfer_xpx(browser.launch_url)
+            .delete_account(browser.launch_url, password, password2)
+            .transfer_xpx(browser.launch_url)
 
     }
 

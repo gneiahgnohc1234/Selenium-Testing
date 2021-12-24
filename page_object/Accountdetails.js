@@ -105,12 +105,17 @@ const commands = {
         .isVisible('@copypublickey_popup', callback = (result) => {
             this.assert.equal(result.value, true, 'If user clicks to copy public key, a notification is shown')
         })
+        .pause(1000)
+        .end()
     },
 
     transfer_xpx(browser){
         return this
+        .click("@account")
         .click("@transfer_button")
         .assert.urlEquals(browser + 'create-transfer', 'When transfer xpx button is clicked, user is directed to create transfer page')
+        .pause(1000)
+        .end()
 
     },
 
@@ -178,23 +183,22 @@ const commands = {
         .pause(2000)
         .click("@download_button")
         .click("@input_password2")
+        .setValue("@input_password2", password)
+        .click("@password_eyeicon2")
+        .assert.elementPresent('@password_eyeicon2', "When eye icon is clicked, password field is unmasked")
+        .pause(1000)
+        .click("@confirm_button2")
+        .pause(5000)
+        .click("@download_button")
+        .click("@input_password2")
         .setValue("@input_password2", password2)
         .click("@confirm_button2")
         .isVisible('@error_wrongpassword2', callback = result => {
             this.assert.equal(result.value, true, "If user enters wrong wallet password, an error is shown")
         })
         .click("@cancel_button3")
-        .click("@back")
-        // .click("@account")
-        // .click("@download_button")
-        // .click("@input_password2")
-        // .setValue("@input_password2", password)
-        // .click("@password_eyeicon2")
-        // .assert.elementPresent('@password_eyeicon2', "When eye icon is clicked, password field is unmasked")
-        // .pause(1000)
-        // .click("@confirm_button2")
-        // .pause(5000)
-
+        .pause(5000)
+        
     },
 
     show_privatekey(password1, password2){
