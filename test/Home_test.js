@@ -2,7 +2,6 @@ var name = "Selenium"
 var password = "abcd1234"
 
 
-
 module.exports = {
 
     "Home_test": function(browser) {
@@ -21,15 +20,21 @@ module.exports = {
       signin
         .signin_dashboard(browser.launch_url, password)
       
+      // home page 
       home
-        // .navigate_transfer(browser.launch_url)
-        // .navigate_digitalasset(browser.launch_url)
-        // .navigate_namespace(browser.launch_url)
+        .navigate_transfer(browser.launch_url)
+        .home(browser.launch_url)
+        .navigate_digitalasset(browser.launch_url)
+        .home(browser.launch_url)
         .navigate_namespace(browser.launch_url)
         .home(browser.launch_url)
-        // .click_tabs()
+        .navigate_namespace(browser.launch_url)
+        .home(browser.launch_url)
+        .click_tabs()
+        .home(browser.launch_url)
         .click_headercomponents(browser.launch_url)
 
-        
     },
+    
+
   };
