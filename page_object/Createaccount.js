@@ -213,6 +213,8 @@ const commands = {
         .isVisible('@error_existingname', function callback(result) {
             this.assert.equal(result.value, true, 'If account name is taken, error is shown')
         })
+        .pause(1000)
+        .end()
     },
 
     existing_name_pk(privatekey, name, password){
@@ -240,6 +242,7 @@ const commands = {
             this.assert.equal(result.value, true, 'If account with that private key is taken, error is shown')
         })
         .pause(1000)
+        .end()
     },
 
     invalid_privatekey(privatekey){
