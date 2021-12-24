@@ -26,6 +26,9 @@ module.exports = {
         // .navigate_digitalasset(browser.launch_url)
         // .navigate_namespace(browser.launch_url)
         .navigate_namespace(browser.launch_url)
+        .home(browser.launch_url)
+        // .click_tabs()
+        .click_headercomponents(browser.launch_url)
 
         
     },
