@@ -100,6 +100,8 @@ const commands = {
         .click("@createnew")
         .click("@createnew_backup")
         .click("@backupnext")
+        .pause(1000)
+        .end()
     },
 
     // checks for empty input (create wallet)
