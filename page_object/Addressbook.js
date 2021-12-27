@@ -20,6 +20,12 @@ const elements = {
     error_emptyname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
     error_invalidaddress: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)',
     error_duplicateaddress: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div.error.error_box.mb-5',
+    ellipsis_icon: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(1) > img',
+    remove_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
+    removecontact_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)',
+    removecontact_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > fieldset > div:nth-child(1) > button',
+    nocontacts_available: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td > div:nth-child(2)',
+    import_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(2)',
 
 }
 
@@ -77,7 +83,24 @@ const commands = {
 
     },
 
-    add_newaddress(browser, name, address, custom){
+    import_contact(){
+        return this
+        .click("@import_tab")
+        
+    },
+
+    remove_contact(emptycontact){
+        return this
+        .click("@ellipsis_icon")
+        .click("@remove_button")
+        .isVisible('@removecontact_popup', callback = (result) => {
+            this.assert.equal(result.value, true, 'If user clicks remove, a remove contact pop up box is shown')
+        })
+        .click("@removecontact_button")
+        .assert.containsText('@nocontacts_available', emptycontact, 'Nothing to show')
+    },
+
+    add_newcontact(browser, name, address, custom){
         return this
         .click("@addnew_button")
         .assert.urlEquals(browser + 'add-contact', 'User is navigated to add contact page')

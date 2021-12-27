@@ -6,6 +6,7 @@ var name = "Selenium"
 var addressname = "Sully"
 var password = "abcd1234"
 var custom = "Father"
+var emptycontact = "Nothing to show"
 
 
 module.exports = {
@@ -28,8 +29,9 @@ module.exports = {
 
         addressbook
             .navigation_addressbook(browser.launch_url)
-            .add_newaddress(browser.launch_url, addressname, address, custom)
-            .existing_address(name, address)
+            .add_newcontact(browser.launch_url, addressname, address, custom)
+            // .existing_address(name, address)
+            .remove_contact(emptycontact)
             // .invalid_address(address2, address3, address4)
             // .empty_name(address)
 
