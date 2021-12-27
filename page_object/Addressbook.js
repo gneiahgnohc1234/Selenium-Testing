@@ -26,6 +26,12 @@ const elements = {
     removecontact_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > fieldset > div:nth-child(1) > button',
     nocontacts_available: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td > div:nth-child(2)',
     import_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(2)',
+    import_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1)',
+    importaddress_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1)',
+    close_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > svg > path',
+    export_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(3)',
+    edit_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1)',
+    contactupdated_popup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
 
 }
 
@@ -61,6 +67,21 @@ const commands = {
         })
     },
 
+    edit_contact(name, address){
+        return this
+        .click("@ellipsis_icon")
+        .click("@edit_button")
+        .clearValue("@input_name")
+        .setValue("@input_name", name)
+        .clearValue("@input_address")
+        .setValue("@input_address", address)
+        .click("@save_address")
+        .isVisible('@contactupdated_popup', callback = (result) => {
+            this.assert.equal(result.value, true, 'If contact is successfully updated, a notification is shown')
+        })
+        .pause(5000)
+    },
+
     invalid_address(address1, address2, address3){
         return this
         .click("@addnew_button")
@@ -86,7 +107,11 @@ const commands = {
     import_contact(){
         return this
         .click("@import_tab")
-        
+        .click("@import_button")
+        .isVisible('@importaddress_popup', callback = (result) => {
+            this.assert.equal(result.value, true, 'If user clicks import, an import address pop up box is shown for user to choose file')
+        })
+        .click("@close_button")
     },
 
     remove_contact(emptycontact){

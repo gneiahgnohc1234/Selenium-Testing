@@ -3,6 +3,8 @@ var address2 ='aaaaaa-aaaaaa-aaaaaa-aaaaaa-aaaaaa-aaaaaa-aaaa'
 var address3 = 'XANRRV-JWFLWR-4LITVY-JQG6YT-HHZNJ4-QGPY6F-V7I'
 var address4 = 'XANRRV-JWFLWR-4LITVY-JQG6YT-HHZNJ4-QGPY6F-V7ISS'
 var name = "Selenium"
+var editname = "Ruby"
+var editaddress = "XCDZKB-7KRER7-OME7B2-DEA3KZ-4RBYKV-IU2C6Q-ZTJC"
 var addressname = "Sully"
 var password = "abcd1234"
 var custom = "Father"
@@ -30,8 +32,10 @@ module.exports = {
         addressbook
             .navigation_addressbook(browser.launch_url)
             .add_newcontact(browser.launch_url, addressname, address, custom)
+            .edit_contact(editname, editaddress)
             // .existing_address(name, address)
-            .remove_contact(emptycontact)
+            // .remove_contact(emptycontact)
+            // .import_contact()
             // .invalid_address(address2, address3, address4)
             // .empty_name(address)
 
