@@ -23,6 +23,13 @@ const elements = {
     transfer_xpx: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > a:nth-child(3) > div:nth-child(2)',
     close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > img',
     copy_successfulpopup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
+    wallet_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > a:nth-child(2)',
+    wallet_close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)  > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a > img',
+    proceed_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > button',
+    deletewallet_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
+    confirmation_checkbox: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > fieldset > label > input',
+    deletenow_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > fieldset > div:nth-child(2) > button',
+    deletesuccessful_popup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
 
   }
 
@@ -110,6 +117,24 @@ const commands = {
           this.assert.equal(result.value, true, 'If user clicks to copy wallet address, a notification is shown')
         })
         
+    },
+
+    delete_wallet(browser){
+      return this
+      .click("@wallet_tab")
+      .assert.urlEquals(browser + 'wallets', 'When wallets tab is clicked, user is directed to wallets page')
+      .pause(2000)
+      .click("@wallet_close")
+      .click("@proceed_button")
+      .isVisible('@deletewallet_popup', callback = (result) => {
+        this.assert.equal(result.value, true, 'If user clicks to proceed, a delete wallet pop up box confirmation is shown')
+      })
+      .click("@confirmation_checkbox")
+      .click("@deletenow_button")
+      .isVisible('@deletesuccessful_popup', callback = (result) => {
+        this.assert.equal(result.value, true, 'If user clicks to delete now, a notification saying wallet is deleted is shown')
+      })
+      
     },
 
 }
