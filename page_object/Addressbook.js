@@ -67,7 +67,7 @@ const commands = {
         })
     },
 
-    edit_contact(name, address){
+    edit_contact(name, address, address2){
         return this
         .click("@ellipsis_icon")
         .click("@edit_button")
@@ -79,7 +79,19 @@ const commands = {
         .isVisible('@contactupdated_popup', callback = (result) => {
             this.assert.equal(result.value, true, 'If contact is successfully updated, a notification is shown')
         })
-        .pause(5000)
+        .pause(1000)
+        .click("@ellipsis_icon")
+        .click("@edit_button")
+        .setValue("@input_name", '\ue003\ue003\ue003\ue003')
+        .isVisible('@error_emptyname', callback = (result) => {
+            this.assert.equal(result.value, true, 'If name field has no input, an error is shown')
+        })
+        .clearValue("@input_address")
+        .setValue("@input_address", address2)
+        .isVisible('@error_invalidaddress', callback = (result) => {
+            this.assert.equal(result.value, true, 'If address is invalid, an error is shown')
+        })
+
     },
 
     invalid_address(address1, address2, address3){
@@ -111,6 +123,7 @@ const commands = {
         .isVisible('@importaddress_popup', callback = (result) => {
             this.assert.equal(result.value, true, 'If user clicks import, an import address pop up box is shown for user to choose file')
         })
+        .pause(1000)
         .click("@close_button")
     },
 

@@ -28,16 +28,20 @@ module.exports = {
         // sign in
         signin
             .signin_dashboard(browser.launch_url, password)
-
+        
+        // address book test
         addressbook
             .navigation_addressbook(browser.launch_url)
             .add_newcontact(browser.launch_url, addressname, address, custom)
-            .edit_contact(editname, editaddress)
-            // .existing_address(name, address)
-            // .remove_contact(emptycontact)
-            // .import_contact()
-            // .invalid_address(address2, address3, address4)
-            // .empty_name(address)
+            .existing_address(name, address)
+            .navigation_addressbook(browser.launch_url)
+            .edit_contact(editname, editaddress, address3)
+            .navigation_addressbook(browser.launch_url)
+            .remove_contact(emptycontact)
+            .empty_name(address)
+            .navigation_addressbook(browser.launch_url)
+            .invalid_address(address2, address3, address4)
+            .import_contact()
 
     }
 
