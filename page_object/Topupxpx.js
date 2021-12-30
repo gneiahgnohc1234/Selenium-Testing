@@ -43,6 +43,7 @@ const commands = {
         return this
         .pause(2000)
         .click("@send_button")
+        .pause(7000)
     },
 
     waitfor_xpx(){

@@ -30,6 +30,9 @@ const elements = {
     confirmation_checkbox: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > fieldset > label > input',
     deletenow_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > fieldset > div:nth-child(2) > button',
     deletesuccessful_popup: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
+    accounts_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > a:nth-child(3)',
+    accountoverview_tab: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)',
+    account_title: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
 
   }
 
@@ -120,21 +123,32 @@ const commands = {
     },
 
     delete_wallet(browser){
-      return this
-      .click("@wallet_tab")
-      .assert.urlEquals(browser + 'wallets', 'When wallets tab is clicked, user is directed to wallets page')
-      .pause(2000)
-      .click("@wallet_close")
-      .click("@proceed_button")
-      .isVisible('@deletewallet_popup', callback = (result) => {
-        this.assert.equal(result.value, true, 'If user clicks to proceed, a delete wallet pop up box confirmation is shown')
-      })
-      .click("@confirmation_checkbox")
-      .click("@deletenow_button")
-      .isVisible('@deletesuccessful_popup', callback = (result) => {
-        this.assert.equal(result.value, true, 'If user clicks to delete now, a notification saying wallet is deleted is shown')
-      })
+        return this
+        .click("@wallet_tab")
+        .assert.urlEquals(browser + 'wallets', 'When wallets tab is clicked, user is directed to wallets page')
+        .pause(2000)
+        .click("@wallet_close")
+        .click("@proceed_button")
+        .isVisible('@deletewallet_popup', callback = (result) => {
+          this.assert.equal(result.value, true, 'If user clicks to proceed, a delete wallet pop up box confirmation is shown')
+        })
+        .click("@confirmation_checkbox")
+        .click("@deletenow_button")
+        .isVisible('@deletesuccessful_popup', callback = (result) => {
+          this.assert.equal(result.value, true, 'If user clicks to delete now, a notification saying wallet is deleted is shown')
+        })
       
+    },
+
+    accounts_overview(account){
+        return this
+        .pause(2000)
+        .click("@accounts_tab")
+        .isVisible('@accountoverview_tab', callback = (result) => {
+          this.assert.equal(result.value, true, 'If user clicks accounts, an overview tab of accounts is available')
+        })
+        .assert.containsText('@account_title', account, 'User account is displayed under overviews')
+
     },
 
 }

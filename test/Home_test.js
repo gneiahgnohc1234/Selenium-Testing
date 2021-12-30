@@ -1,5 +1,6 @@
 var name = "Selenium"
 var password = "abcd1234"
+var account = "Primary"
 
 
 module.exports = {
@@ -34,6 +35,7 @@ module.exports = {
         .home(browser.launch_url)
         .click_headercomponents(browser.launch_url)
         .delete_wallet(browser.launch_url)
+        .accounts_overview(account)
 
     },
     
