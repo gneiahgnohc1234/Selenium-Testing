@@ -7,6 +7,7 @@ const elements = {
     scan_qr: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > a',
     copy_address: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > img',
     input_testnetaddress: '#form-name',
+    send_button: '#fauceApp > div:nth-child(1) > div:nth-child(3) > button',
 
 }
 
@@ -16,7 +17,7 @@ const commands = {
         return this
         .click("@network_dropdown")
         .click("@testnet_1")
-        .pause(5000)
+        .pause(2000)
 
     },
 
@@ -35,13 +36,18 @@ const commands = {
     input_address(){
         return this
         .click("@input_testnetaddress")
-        // .setValue("@input_testnetaddress", '\ue016')
 
     },
 
-    testing(){
+    send_xpx(){
         return this
-        .pause(7000)
+        .pause(2000)
+        .click("@send_button")
+    },
+
+    waitfor_xpx(){
+        return this
+        .pause(10000)
     },
     
 
