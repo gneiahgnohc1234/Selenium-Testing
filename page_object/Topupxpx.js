@@ -8,6 +8,11 @@ const elements = {
     copy_address: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > img',
     input_testnetaddress: '#form-name',
     send_button: '#fauceApp > div:nth-child(1) > div:nth-child(3) > button',
+    account: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)',
+    view_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > svg > path',
+    input_password: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input',
+    confirm_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3)',
+    copy_privatekey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(12) > div:nth-child(3) > svg:nth-child(2) > path',
 
 }
 
@@ -51,6 +56,17 @@ const commands = {
         .pause(10000)
     },
     
+    copy_privatekey(password){
+        return this
+        .click("@account")
+        .click("@view_privatekey")
+        .setValue("@input_password", password)
+        .click("@confirm_button")
+        .pause(7000)
+        .click("@copy_privatekey")
+        .pause(7000)
+
+    },
 
 }
 

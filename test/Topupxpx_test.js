@@ -1,6 +1,6 @@
 var name = "Selenium"
 var password = "abcd1234"
-
+var privatekey = "449198BF93D383DD7F9769DD0ED212B8F28D4A5F2CFD3B282685C3707356DA0C"
 
 module.exports = {
 
@@ -9,6 +9,7 @@ module.exports = {
         var xpx = browser.page.Topupxpx()
         var create = browser.page.Createwallet()
         var signin = browser.page.Signin()
+        // var asset = browser.page.Assets()
         
         // change to testnet 1
         xpx 
@@ -61,6 +62,11 @@ module.exports = {
         // wait for transaction
         xpx
             .waitfor_xpx()
+            .copy_privatekey(password)
+        
+
+        // asset
+        //     .navigation_assets(browser.launch_url)
 
     },
 
