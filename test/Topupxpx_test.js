@@ -9,7 +9,6 @@ module.exports = {
         var xpx = browser.page.Topupxpx()
         var create = browser.page.Createwallet()
         var signin = browser.page.Signin()
-        // var asset = browser.page.Assets()
         
         // change to testnet 1
         xpx 
@@ -64,9 +63,6 @@ module.exports = {
             .waitfor_xpx()
             .copy_privatekey(password)
         
-
-        // asset
-        //     .navigation_assets(browser.launch_url)
 
     },
 
