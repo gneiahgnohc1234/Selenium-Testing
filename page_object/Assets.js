@@ -26,6 +26,11 @@ const commands = {
             this.assert.equal(result.value, true, "If user does not enter password, an error is shown")
         })
     },
+
+    create_asset(){
+        return this
+        .pause(7000)
+    },
     
 
 }

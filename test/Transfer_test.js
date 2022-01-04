@@ -9,7 +9,8 @@ module.exports = {
         var create = browser.page.Createwallet()
         var signin = browser.page.Signin()
         var network = browser.page.Topupxpx()
-        var asset = browser.page.Assets()
+        var transfer = browser.page.Transfer()
+        var account = browser.page.Createaccount()
 
         // change to testnet 1
         network 
@@ -25,10 +26,15 @@ module.exports = {
         signin
             .signin_dashboard(browser.launch_url, password)
         
-        asset
-            .navigation_assets(browser.launch_url)
-            .empty_password()
-            .create_asset()
+        account
+            .navigate_createaccount(browser.launch_url)
+            .navigate_createnewaccount(browser.launch_url)
+            .create_account(name, password)
+        
+        // transfer
+        transfer
+            .navigation_transfer(browser.launch_url)
+            .transferfrom_dropdown()
 
     }
 

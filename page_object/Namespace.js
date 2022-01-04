@@ -6,6 +6,9 @@ const elements = {
     input_password: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(8) > div:nth-child(1) > input',
     error_invalidname: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
     error_emptypassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(8) > div.error.error-password.text-left.my-2',
+    register_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > button',
+    select_namespace: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)',
+    newroot_namespace: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)',
 
 }
 
@@ -40,6 +43,20 @@ const commands = {
         .isVisible('@error_emptypassword', callback = result => {
             this.assert.equal(result.value, true, "If wallet password has no input, an error is shown")
         })
+    },
+
+    create_namespace(name, password){
+        return this
+        // .setValue("@input_name", '\ue003')
+        .pause(10000)
+        // .click("@select_namespace")
+        // .click("@newroot_namespace")
+        .setValue("@input_name", name)
+        .setValue("@input_password", password)
+        // .pause(2000)
+        .click("@register_button")
+        // .pause(20000)
+
     },
 
     

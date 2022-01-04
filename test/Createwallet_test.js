@@ -2,6 +2,7 @@ var name = 'selenium'
 var password = 'abcd1234'
 var password2 = 'abcd12345'
 var shortpassword = 'abc'
+var longpassword = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijkl'
 var privatekey = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44E0'
 var privatekey1 = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44E'
 

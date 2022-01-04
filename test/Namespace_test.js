@@ -1,7 +1,7 @@
 var name = "Selenium"
 var shortname = "s"
-var namespace_input = "Sirius"
-var password = "abcd1234"
+var namespace_input = "sirius"
+var password = "abcd12345678"
 var privatekey = "449198BF93D383DD7F9769DD0ED212B8F28D4A5F2CFD3B282685C3707356DA0C"
 
 module.exports = {
@@ -29,7 +29,8 @@ module.exports = {
         
         namespace
             .navigate_namespace(browser.launch_url)
-            .invalid_name(shortname)
+            // .invalid_name(shortname)
+            .create_namespace(namespace_input, password)
             // .empty_password(namespace_input)
 
     }
