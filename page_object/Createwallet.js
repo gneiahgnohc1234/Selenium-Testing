@@ -1,13 +1,13 @@
 const elements = {
     
-    back: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a',
+    back: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a',
     create: 'form > button',
     createnew: 'div.text-center.text-xs.text-blue-link.font-semibold > a',
     createnew_wallet: 'div.radio-toolbar.text-center > label:nth-child(2)',
     createnew_frompk: 'div.radio-toolbar.text-center > label:nth-child(4)',                                    
     createnew_backup: 'div.radio-toolbar.text-center > label:nth-child(6)',
-    createsuccessful_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',          
-    close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(4) > a',
+    createsuccessful_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',          
+    close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a',
     next: 'a[href="#/create-wallet"]',
     pknext: 'a[href="#/import-wallet"]',
     backupnext: 'a[href="#/backup-wallet"]',
@@ -39,7 +39,7 @@ const elements = {
     error_pkduplicatename: 'form > div:nth-child(4) > div',
     signin_here: 'form > div:nth-child(8) > a',
     signin_herepk: 'form > div:nth-child(10) > a',
-    signin_herebackup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(9) > a'
+    signin_herebackup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(9) > a'
 }
 
 const commands = {

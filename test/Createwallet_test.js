@@ -7,6 +7,7 @@ var privatekey = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44
 var privatekey1 = 'D3AE97B58C1E1A417E11A51232A8FCEDA2137405CC6AEDFDB21F2B088A4F44E'
 
 module.exports = {
+    
     "Create-wallet_test": (browser) => {
         var create = browser.page.Createwallet();
         create
