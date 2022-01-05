@@ -16,6 +16,7 @@ const elements = {
     transfer_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > button:nth-child(11)',
     error_wrongpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)',
     transaction_successful: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
+    password_eyeicon: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(10) > div:nth-child(1) > svg > path',
 
 }
 
@@ -68,6 +69,12 @@ const commands = {
         })
         .clearValue("@input_password")
         .setValue("@input_password", password1)
+        // masked password function
+        .click("@password_eyeicon")
+        .assert.elementPresent('@password_eyeicon', "When eye icon is clicked, password field is unmasked")
+        .click('@password_eyeicon')
+        .assert.elementPresent('@password_eyeicon', "When eye icon is clicked, password field is masked again")
+        // create transfer
         .click("@transfer_button")
         .pause(8000)
         .isVisible('@transaction_successful', callback = result => {
@@ -75,6 +82,7 @@ const commands = {
         })
 
     },
+
 
     contact_dropdown(){
         return this
