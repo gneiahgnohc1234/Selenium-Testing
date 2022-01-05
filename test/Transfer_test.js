@@ -1,6 +1,9 @@
 var name = "Selenium"
 var password = "abcd1234"
-var privatekey = "449198BF93D383DD7F9769DD0ED212B8F28D4A5F2CFD3B282685C3707356DA0C"
+// var privatekey = "449198BF93D383DD7F9769DD0ED212B8F28D4A5F2CFD3B282685C3707356DA0C"
+var privatekey = "0ACDDBF848D081613E665144FF48181EBE4E009D27F33C53AC32180D73A6C667"
+var address = "VBE2LN-QYZS2P-ODPWSO-CARZXJ-3I3RUI-IK5PX5-PMO"
+var status = "INVALID"
 
 module.exports = {
 
@@ -34,7 +37,9 @@ module.exports = {
         // transfer
         transfer
             .navigation_transfer(browser.launch_url)
-            .transferfrom_dropdown()
+            .sender_account()
+            .invalid_address(address, status)
+            .contact_dropdown()
 
     }
 
