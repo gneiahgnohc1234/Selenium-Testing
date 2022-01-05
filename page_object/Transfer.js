@@ -8,6 +8,14 @@ const elements = {
     invalid_icon: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)',
     select_contact: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2)',
     contact_list: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(3) > div:nth-child(1)',
+    input_password: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(10) > div:nth-child(1) > input',
+    error_emptypassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(10) > div:nth-child(2)',
+    cancel_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(12) > a',
+    transfer_amount: '.supply_input',
+    home_icon: '#app > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1) > img',
+    transfer_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > button:nth-child(11)',
+    error_wrongpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)',
+    transaction_successful: 'body > div:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
 
 }
 
@@ -18,6 +26,10 @@ const commands = {
         .pause(1000)
         .click("@transfer_tab")
         .assert.urlEquals(browser + 'create-transfer', 'User is navigated to create transfer page')
+        .click("@cancel_button")
+        .assert.urlEquals(browser + 'dashboard', 'User is navigated back to dashboard')
+        .click("@transfer_tab")
+
     },
 
     sender_account(){
@@ -40,6 +52,30 @@ const commands = {
 
     },
 
+    create_transfer(amount, password1, password2){
+        return this
+        .pause(5000)
+        .clearValue("@receiver_acc")
+        .click("@select_contact")
+        .click("@contact_list")
+        .setValue("@transfer_amount", amount)
+        .setValue("@input_password", password2)
+        .setValue("@input_password", '\ue004')
+        .click("@transfer_button")
+        // enter wrong password
+        .isVisible('@error_wrongpassword', callback = result => {
+            this.assert.equal(result.value, true, "If user enters wrong password, an error is shown")
+        })
+        .clearValue("@input_password")
+        .setValue("@input_password", password1)
+        .click("@transfer_button")
+        .pause(8000)
+        .isVisible('@transaction_successful', callback = result => {
+            this.assert.equal(result.value, true, "A notification is shown after the transaction is processed")
+        })
+
+    },
+
     contact_dropdown(){
         return this
         .click("@select_contact")
@@ -50,7 +86,6 @@ const commands = {
 
     empty_password(){
         return this
-        .pause(5000)
         .click("@input_password")
         .setValue("@input_password", '\ue004')
         .isVisible('@error_emptypassword', callback = result => {

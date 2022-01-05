@@ -1,9 +1,11 @@
 var name = "Selenium"
-var password = "abcd1234"
+var password1 = "abcd1234"
+var password2 = "abcd12345"
 // var privatekey = "449198BF93D383DD7F9769DD0ED212B8F28D4A5F2CFD3B282685C3707356DA0C"
 var privatekey = "0ACDDBF848D081613E665144FF48181EBE4E009D27F33C53AC32180D73A6C667"
-var address = "VBE2LN-QYZS2P-ODPWSO-CARZXJ-3I3RUI-IK5PX5-PMO"
+var invalidaddress = "VBE2LN-QYZS2P-ODPWSO-CARZXJ-3I3RUI-IK5PX5-PMO"
 var status = "INVALID"
+var amount = "1000"
 
 module.exports = {
 
@@ -23,23 +25,25 @@ module.exports = {
         // create wallet
         create
             .navigate_createpkwallet(browser.launch_url)
-            .create_pkwallet(browser.launch_url, privatekey, name, password)
+            .create_pkwallet(browser.launch_url, privatekey, name, password1)
 
         // sign in
         signin
-            .signin_dashboard(browser.launch_url, password)
+            .signin_dashboard(browser.launch_url, password1)
         
         account
             .navigate_createaccount(browser.launch_url)
             .navigate_createnewaccount(browser.launch_url)
-            .create_account(name, password)
+            .create_account(name, password1)
         
         // transfer
         transfer
             .navigation_transfer(browser.launch_url)
             .sender_account()
-            .invalid_address(address, status)
+            .invalid_address(invalidaddress, status)
             .contact_dropdown()
+            .empty_password()
+            .create_transfer(amount, password1, password2)
 
     }
 
