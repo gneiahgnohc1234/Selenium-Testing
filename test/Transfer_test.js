@@ -10,18 +10,12 @@ var xpx = "27.450000"
 
 module.exports = {
 
-    "Namespace_test": function (browser) {
+    "Transfer_test": function (browser) {
 
         var create = browser.page.Createwallet()
         var signin = browser.page.Signin()
-        var network = browser.page.Topupxpx()
         var transfer = browser.page.Transfer()
         var account = browser.page.Createaccount()
-
-        // // change to testnet 1
-        // network 
-        //     .navigate()
-        //     .change_network()
 
         // create wallet
         create
