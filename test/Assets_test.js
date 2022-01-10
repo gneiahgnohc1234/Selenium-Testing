@@ -10,20 +10,15 @@ var privatekey = "0ACDDBF848D081613E665144FF48181EBE4E009D27F33C53AC32180D73A6C6
 
 module.exports = {
 
-    "Namespace_test": function (browser) {
+    "Assets_test": function (browser) {
 
         var create = browser.page.Createwallet()
         var signin = browser.page.Signin()
-        var network = browser.page.Topupxpx()
         var asset = browser.page.Assets()
-
-        // change to testnet 1
-        network 
-            .navigate()
-            .change_network()
 
         // create wallet
         create
+            .navigate()
             .navigate_createpkwallet(browser.launch_url)
             .create_pkwallet(browser.launch_url, privatekey, name, password)
 
