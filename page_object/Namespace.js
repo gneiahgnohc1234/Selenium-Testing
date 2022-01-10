@@ -14,6 +14,7 @@ const elements = {
     created_namespace: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2) > span:nth-child(1)',
     created_namespaceid: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(3) > span:nth-child(1)',
     created_namespacetimestamp: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(6) > span:nth-child(1)',
+    account: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)',
 
 }
 
@@ -63,10 +64,11 @@ const commands = {
         .pause(10000)
         .click("@register_button")
         .pause(30000)
-        .click("@home_icon")
-        .assert.containsText('@created_namespace', name, 'Namespace is successfully created.')
-        .assert.visible('@created_namespaceid', 'Namespace is successfully created with id')
-        .assert.visible('@created_namespacetimestamp', 'Namespace is successfully created with timestamp')
+        .click("@account")
+        // .click("@home_icon")
+        // .assert.containsText('@created_namespace', name, 'Namespace is successfully created.')
+        // .assert.visible('@created_namespaceid', 'Namespace is successfully created with id')
+        // .assert.visible('@created_namespacetimestamp', 'Namespace is successfully created with timestamp')
 
     },
 
