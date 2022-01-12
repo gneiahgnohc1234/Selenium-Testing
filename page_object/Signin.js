@@ -5,11 +5,10 @@ const elements = {
     input_password: 'form > fieldset > div:nth-child(7) > div:nth-child(1) > div:nth-child(1) > input',
     clearinput_password: 'form > fieldset > div:nth-child(8) > div:nth-child(1) > div:nth-child(1)',
     sign_in: 'form > fieldset > div:nth-child(8) > button',
-    sign_out: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(6) > a',
+    sign_out: '.signout_block',
     error_emptypassword: 'form > fieldset > div:nth-child(7) > div:nth-child(1) > div.error.error-password.text-left.my-2',
     error_wrongpassword: 'form > fieldset > div:nth-child(1)',
     password_eyeicon: 'form > fieldset > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > svg > path',
-    create: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(5) > a'
 
   }
 
