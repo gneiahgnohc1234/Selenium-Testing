@@ -52,13 +52,13 @@ const commands = {
         return this
         .setValue("@receiver_acc", address)
         .assert.containsText('@invalid_icon', status, 'Wallet address is invalid.')
+        .clearValue("@receiver_acc")
 
     },
 
     create_transfer(amount, message, xpx, password1, password2){
         return this
         .pause(5000)
-        .clearValue("@receiver_acc")
         .click("@select_contact")
         .click("@contact_list")
         .setValue("@transfer_amount", amount)

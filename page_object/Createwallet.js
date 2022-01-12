@@ -6,8 +6,10 @@ const elements = {
     createnew_wallet: 'div.radio-toolbar.text-center > label:nth-child(2)',
     createnew_frompk: 'div.radio-toolbar.text-center > label:nth-child(4)',                                    
     createnew_backup: 'div.radio-toolbar.text-center > label:nth-child(6)',
-    createsuccessful_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',          
-    close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a',
+    // createsuccessful_popup: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',          
+    createsuccessful_popup: '.popup-outer-create-wallet > div:nth-child(1)',
+    // close: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a',
+    close: 'a.mt-4',
     next: 'a[href="#/create-wallet"]',
     pknext: 'a[href="#/import-wallet"]',
     backupnext: 'a[href="#/backup-wallet"]',
@@ -71,6 +73,7 @@ const commands = {
     // create pk wallet navigation
     navigate_createpkwallet(browser){
         return this
+        .pause(3000)
         .click("@createnew")
         .assert.urlEquals(browser + 'create', 'Create acc wallet is clicked, user is navigated to wallet selection type.')
         .click("@createnew_frompk")
