@@ -56,7 +56,7 @@ const commands = {
     // create new wallet navigation
     navigate_createnewwallet(browser){
         return this
-        .pause(3000)
+        .pause(8000)
         .click("@createnew")
         .assert.urlEquals(browser + 'create', 'Create acc wallet is clicked, user is navigated to wallet selection type.')
         .click("@createnew_wallet")
@@ -72,7 +72,7 @@ const commands = {
     // create pk wallet navigation
     navigate_createpkwallet(browser){
         return this
-        .pause(3000)
+        .pause(8000)
         .click("@createnew")
         .assert.urlEquals(browser + 'create', 'Create acc wallet is clicked, user is navigated to wallet selection type.')
         .click("@createnew_frompk")
@@ -88,7 +88,7 @@ const commands = {
     // create backup wallet navigation
     navigate_createbackupwallet(browser){
         return this
-        .pause(3000)
+        .pause(8000)
         .click("@createnew")
         .assert.urlEquals(browser + 'create', 'Create acc wallet is clicked, user is navigated to wallet selection type.')
         .click("@createnew_backup")
