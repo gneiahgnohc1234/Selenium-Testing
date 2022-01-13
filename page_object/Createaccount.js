@@ -139,9 +139,6 @@ const commands = {
         .setValue("@input_walletpassword", password)
         .click("@create")
         .pause(1000)
-        .assert.visible('@createsuccessful_popup', 'Account is successfully created when account name is valid and wallet password is correct')
-        .click("@close")
-        .pause(1000)
         .isVisible('@account_detailstab', callback = (result) => {
             this.assert.equal(result.value, true, 'If account is successfully created, user is navigated to the newly created account details page')
         })
@@ -166,9 +163,6 @@ const commands = {
         .setValue("@input_accountname_pk", name)
         .setValue("@input_walletpassword_pk", password)
         .click("@create")
-        .pause(1000)
-        .assert.visible('@createsuccessful_popup', 'Account is successfully created when account name is valid and wallet password is correct')
-        .click("@close")
         .pause(1000)
         .isVisible('@account_detailstab', callback = (result) => {
             this.assert.equal(result.value, true, 'If account is successfully created, user is navigated to the newly created account details page')
