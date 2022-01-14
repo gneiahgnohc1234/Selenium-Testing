@@ -5,8 +5,6 @@ var privatekey = "0ACDDBF848D081613E665144FF48181EBE4E009D27F33C53AC32180D73A6C6
 var invalidaddress = "VBE2LN-QYZS2P-ODPWSO-CARZXJ-3I3RUI-IK5PX5-PMO"
 var status = "INVALID"
 var amount = "1000"
-var message = "this is 1000 xpx"
-var xpx = "27.450000"
 
 module.exports = {
 
@@ -40,7 +38,7 @@ module.exports = {
             .invalid_address(invalidaddress, status)
             .contact_dropdown()
             .empty_password()
-            .create_transfer(amount, message, xpx, password1, password2)
+            .create_transfer(amount, password1, password2)
 
     }
 
