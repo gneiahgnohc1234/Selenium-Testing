@@ -10,7 +10,7 @@ const elements = {
     assets_tab: 'div.px-3:nth-child(2)',
     namespaces_tab: 'div.text-xs:nth-child(3)',
     transactions_tab: 'div.text-xs:nth-child(4)',
-    assets_title: 'div.bg-white:nth-child(3) > div:nth-child(1) > b:nth-child(1)',
+    recenttxn_title: 'div.bg-white:nth-child(3) > div:nth-child(1) > b:nth-child(1)',
     assetid_title: '.p-datatable-thead > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > span:nth-child(1)',
     namespaces_title: 'div.mt-10:nth-child(3) > b:nth-child(1)',
     transactions_title: 'div.text-txs:nth-child(5) > b:nth-child(1)',
@@ -18,7 +18,7 @@ const elements = {
     txhash_title: '.p-datatable-thead > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > span:nth-child(1)',
     account_popup: '.popup-outer > div:nth-child(1)',
     copy_address: 'div.mb-8:nth-child(2) > img:nth-child(2)',
-    transfer_xpx: 'a.mt-5 > div:nth-child(2)',
+    transfer_xpx: 'a[href="#/create-transfer"] > div:nth-child(2)',          
     copy_successfulpopup: 'div.p-toast:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     wallet_tab: 'a[href="#/wallets"]',
     wallet_close: '.mr-7 > a:nth-child(1) > img:nth-child(1)',
@@ -89,14 +89,8 @@ const commands = {
           this.assert.equal(result.value, true, 'If transactions tab is clicked, user transactions will be shown')
         })
         .click("@overview_tab")
-        .isVisible('@assets_title', callback = (result) => {
-          this.assert.equal(result.value, true, 'If overview tab is clicked, user assets will be shown')
-        })
-        .isVisible('@namespaces_title', callback = (result) => {
-          this.assert.equal(result.value, true, 'If overview tab is clicked, user namespaces will be shown')
-        })
-        .isVisible('@transactions_title', callback = (result) => {
-          this.assert.equal(result.value, true, 'If overview tab is clicked, user transactions will be shown')
+        .isVisible('@recenttxn_title', callback = (result) => {
+          this.assert.equal(result.value, true, 'If overview tab is clicked, user recent transactions will be shown')
         })
 
     },

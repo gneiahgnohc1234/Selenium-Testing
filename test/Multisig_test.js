@@ -45,7 +45,7 @@ module.exports = {
             .add_cosignatory()
             .scheme_validation()
             .invalid_password(password2)
-            // .empty_password(browser.launch_url)
+            .empty_password(browser.launch_url)
         
         // browser.sendKeys('xpath', "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[3]/div[1]/div[4]/div/div/div[2]/div[1]/input", browser.Keys.CONTROL + "v")
             

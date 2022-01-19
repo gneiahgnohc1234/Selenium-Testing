@@ -1,24 +1,24 @@
 const elements = {
 
-    account: 'a.link_block:nth-child(1)',
-    multisig_tab: 'a.w-18:nth-child(2)',
-    managecosign_button: '.blue-btn',
+    account_ellipsis: 'img.h-6:nth-child(1)',
+    multisig_selection: 'a[href="#/multisig-settings/Primary"]',
+    managecosign_button: '.blue-btn', 
     addcosign_button: 'button.pl-6',
-    input_publickey: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > input',
+    input_publickey: 'div.flex.flex-col.gap-2 > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > input',
     publickey: '.pb-1 > path:nth-child(2)',
     error_invalidpublickey: '.error',
-    select_contact: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5)',
-    contact_list: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)',
-    reduce_txnapproval: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(8) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)',
-    add_txnapproval: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(8) > div:nth-child(1) > div:nth-child(2) > button:nth-child(3)',
-    reduce_dltapproval: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(8) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)',
-    add_dltapproval: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(8) > div:nth-child(2) > div:nth-child(2) > button:nth-child(3)',
-    error_invalidapproval: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
+    select_contact: 'div.border:nth-child(5)',
+    contact_list: 'div.bg-gray-100:nth-child(1)',
+    reduce_txnapproval: 'div.flex.gap-2.pl-6 > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)',
+    add_txnapproval: 'div.flex.gap-2.pl-6 > div:nth-child(1) > div:nth-child(2) > button:nth-child(3)',
+    reduce_dltapproval: 'div.flex.gap-2.pl-6 > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)',
+    add_dltapproval: 'div.flex.gap-2.pl-6 > div:nth-child(2) > div:nth-child(2) > button:nth-child(3)',
+    error_invalidapproval: '.error',
     input_password: 'input.text-left',
-    error_emptypassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(12) > div:nth-child(2)',
+    error_emptypassword: '.error',
     cancel_button: '.content-center',
-    updatecosign_button: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(13) > button',
-    error_invalidpassword: '#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
+    updatecosign_button: 'button.w-full',
+    error_invalidpassword: '.error',
 
 }
 
@@ -26,8 +26,8 @@ const commands = {
 
     navigation_multisig(browser){
         return this
-        .click("@account")
-        .click("@multisig_tab")
+        .click("@account_ellipsis")
+        .click("@multisig_selection")
         .assert.urlEquals(browser + 'multisig-settings/Primary', 'User is navigated to multisig page')
         .click("@managecosign_button")
         .assert.urlEquals(browser + 'convert-account-multisign/Primary', 'User is navigated to convert account to multisig page')
@@ -81,6 +81,7 @@ const commands = {
         return this
         .click("@addcosign_button")
         .assert.visible('@input_publickey', 'When user clicks add cosignatory, cosignatory public key field is opened')
+        .pause(3000)
         .setValue("@input_publickey", publickey)
         .isVisible('@error_invalidpublickey', callback = result => {
             this.assert.equal(result.value, true, "If user enters invalid public key, an error is shown")
