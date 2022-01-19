@@ -4,7 +4,9 @@ var password2 = "abcd12345"
 var privatekey = "0ACDDBF848D081613E665144FF48181EBE4E009D27F33C53AC32180D73A6C667"
 var invalidaddress = "VBE2LN-QYZS2P-ODPWSO-CARZXJ-3I3RUI-IK5PX5-PMO"
 var status = "INVALID"
-var amount = "1000"
+var amount = "0.1"
+var amount1 = "10000"
+var amount2 = "75100"
 
 module.exports = {
 
@@ -39,6 +41,7 @@ module.exports = {
             .contact_dropdown()
             .empty_password()
             .create_transfer(amount, password1, password2)
+            .transfer_asset(amount1, amount2)
 
     }
 

@@ -16,6 +16,11 @@ const elements = {
     error_wrongpassword: '.error',
     transaction_successful: 'div.p-toast:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     password_eyeicon: 'svg.svg-inline--fa:nth-child(2) > path:nth-child(1)',
+    add_asset: 'button.my-2',
+    select_asset: 'select.text-gray-600',
+    asset: 'option.text-gray-800:nth-child(2)',
+    input_assetamount: 'input.supply_input',
+    insufficient_balance: '.error',
 
 }
 
@@ -74,10 +79,23 @@ const commands = {
         .assert.elementPresent('@password_eyeicon', "When eye icon is clicked, password field is masked again")
         // create transfer
         .click("@transfer_button")
-        .pause(10000)
         .isVisible('@transaction_successful', callback = result => {
             this.assert.equal(result.value, true, "A notification is shown after the transaction is processed")
         })
+        .pause(20000)
+    },
+
+    transfer_asset(amount1, amount2){
+        return this
+        .click("@add_asset")
+        .click("@select_asset")
+        .click("@asset")
+        .setValue("@input_assetamount", amount1)
+        .updateValue("@input_assetamount", amount2)
+        .isVisible('@insufficient_balance', callback = result => {
+            this.assert.equal(result.value, true, "An error is shown if it exceeds account balance")
+        })
+        .pause(1000)
 
     },
 

@@ -33,7 +33,7 @@ module.exports = {
         .click_tabs()
         .home(browser.launch_url)
         .click_headercomponents(browser.launch_url)
-        .delete_wallet(browser.launch_url)
+        // .delete_wallet(browser.launch_url)
 
     },
     
