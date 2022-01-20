@@ -60,7 +60,6 @@ module.exports = {
         account
             .navigate_accountdetails()
             .download_walletpaper(password, password2)
-            .transfer_xpx(browser.launch_url)
 
     }
 

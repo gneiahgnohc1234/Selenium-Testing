@@ -10,7 +10,7 @@ const elements = {
     custom_button: 'span.multiselect-option:nth-child(7)',
     custom_popup: '.z-50 > div:nth-child(1)',
     input_customgroup: 'input.border',
-    addcustom_button: '.rounded-md',
+    addcustom_button: 'button.rounded-md', 
     add_addresssuccessful: 'div.p-toast:nth-child(9) > div:nth-child(1) > div:nth-child(1)',
     addressname_value: '.p-datatable-tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)',
     address_value: '.p-datatable-tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)',
