@@ -9,6 +9,8 @@ var publickey = "69A95CE3F72B5175E4D16D9ED4CC11778A26D3908A2A0FBAF3F636C80B9F6E1
 
 module.exports = {
 
+    
+
     "Multisig_test": function (browser) {
 
         var create = browser.page.Createwallet()
@@ -50,6 +52,30 @@ module.exports = {
         // browser.sendKeys('xpath', "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[3]/div[1]/div[4]/div/div/div[2]/div[1]/input", browser.Keys.CONTROL + "v")
             
 
-    }
+    },
+
+    "Insufficientxpx_test": function (browser) {
+
+        var create = browser.page.Createwallet()
+        var signin = browser.page.Signin()
+        var multisig = browser.page.Multisig()
+
+        // create wallet
+        create
+            .navigate()
+            .navigate_createnewwallet(browser.launch_url)
+            .create_wallet(browser.launch_url, name, password1)
+
+        // sign in
+        signin
+            .signin_dashboard(browser.launch_url, password1)
+
+        // multisig test
+        multisig
+            .navigation_multisig(browser.launch_url)
+            .insufficient_xpx()
+
+    },
+
 
 }
