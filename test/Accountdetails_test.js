@@ -15,7 +15,7 @@ module.exports = {
         create
             .navigate()
             .navigate_createnewwallet(browser.launch_url)
-            .create_wallet(browser.launch_url, name, password)
+            .create_wallet(name, password)
 
         // sign in
         signin
@@ -44,7 +44,7 @@ module.exports = {
         create
             .navigate()
             .navigate_createnewwallet(browser.launch_url)
-            .create_wallet(browser.launch_url, name, password)
+            .create_wallet(name, password)
 
         // sign in
         signin

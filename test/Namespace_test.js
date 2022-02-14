@@ -28,7 +28,10 @@ module.exports = {
             .invalid_name(shortname)
             .empty_password(namespace_input)
             // .create_namespace(namespace_input, password)
+            // .link_namespace()
 
-    }
+    },
+
+
 
 }
