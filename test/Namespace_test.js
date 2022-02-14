@@ -16,7 +16,7 @@ module.exports = {
         create
             .navigate()
             .navigate_createpkwallet(browser.launch_url)
-            .create_pkwallet(browser.launch_url, privatekey, name, password)
+            .create_pkwallet(privatekey, name, password)
 
         // sign in
         signin

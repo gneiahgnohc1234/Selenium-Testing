@@ -9,8 +9,6 @@ var publickey = "69A95CE3F72B5175E4D16D9ED4CC11778A26D3908A2A0FBAF3F636C80B9F6E1
 
 module.exports = {
 
-    
-
     "Multisig_test": function (browser) {
 
         var create = browser.page.Createwallet()
@@ -22,7 +20,7 @@ module.exports = {
         create
             .navigate()
             .navigate_createpkwallet(browser.launch_url)
-            .create_pkwallet(browser.launch_url, privatekey, name, password1)
+            .create_pkwallet(privatekey, name, password1)
 
         // sign in
         signin
@@ -34,7 +32,7 @@ module.exports = {
             .navigate_createnewaccount(browser.launch_url)
             .create_account(name, password1)
 
-        // // transfer 
+        // to transfer 
         // transfer
         //     .navigation_transfer(browser.launch_url)
         //     .create_transfer(amount, message, xpx, password1, password2)
@@ -47,10 +45,7 @@ module.exports = {
             .add_cosignatory()
             .scheme_validation()
             .invalid_password(password2)
-            .empty_password(browser.launch_url)
-        
-        // browser.sendKeys('xpath', "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[3]/div[1]/div[4]/div/div/div[2]/div[1]/input", browser.Keys.CONTROL + "v")
-            
+            .empty_password(browser.launch_url)            
 
     },
 
@@ -64,7 +59,7 @@ module.exports = {
         create
             .navigate()
             .navigate_createnewwallet(browser.launch_url)
-            .create_wallet(browser.launch_url, name, password1)
+            .create_wallet(name, password1)
 
         // sign in
         signin
